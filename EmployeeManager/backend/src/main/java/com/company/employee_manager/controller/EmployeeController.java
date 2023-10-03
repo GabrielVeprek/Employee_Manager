@@ -34,7 +34,18 @@ public class EmployeeController {
 
     @GetMapping("/{ID}")
     Employee findByID(@PathVariable long ID) throws EmployeeNotFoundException {
-         return employeeRepository.findById(ID)
-                 .orElseThrow(EmployeeNotFoundException::new);
+        return employeeRepository.findById(ID)
+                .orElseThrow(EmployeeNotFoundException::new);
+    }
+
+    @PutMapping("/{ID}")
+    Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable long ID) throws EmployeeNotFoundException {
+        return employeeRepository.findById(ID)
+                .map(employee -> {
+                    employee.setFirstName(newEmployee.getFirstName());
+                    employee.setLastName(newEmployee.getLastName());
+                    employee.setMail(newEmployee.getMail());
+                    return employeeRepository.save(employee);
+                }).orElseThrow(EmployeeNotFoundException::new);
     }
 }
