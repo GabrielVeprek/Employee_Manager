@@ -27,11 +27,6 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
-    @DeleteMapping("/delete/{ID}")
-    void deleteEmployeeByID(@PathVariable long ID) {
-        employeeRepository.deleteById(ID);
-    }
-
     @GetMapping("/{ID}")
     Employee findByID(@PathVariable long ID) throws EmployeeNotFoundException {
         return employeeRepository.findById(ID)
@@ -47,5 +42,13 @@ public class EmployeeController {
                     employee.setMail(newEmployee.getMail());
                     return employeeRepository.save(employee);
                 }).orElseThrow(EmployeeNotFoundException::new);
+    }
+
+    @DeleteMapping("/{ID}")
+    void deleteEmployee(@PathVariable long ID) throws EmployeeNotFoundException {
+        if (!employeeRepository.existsById(ID)) {
+            throw new EmployeeNotFoundException();
+        }
+        employeeRepository.deleteById(ID);
     }
 }
