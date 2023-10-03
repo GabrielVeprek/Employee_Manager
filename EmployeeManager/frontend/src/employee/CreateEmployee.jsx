@@ -21,11 +21,13 @@ export default function CreateEmployee() {
     await axios.post("http://localhost:8080/employee", employee);
     navigate("/");
   };
+
   return (
     <div className="container">
       <div className="row text-center">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
           <h2 className="text-center m-4">Create Employee</h2>
+
           <form onSubmit={(event) => onSubmit(event)}>
             <div className="mb-3">
               <label htmlFor="FirstName" className="form-label">

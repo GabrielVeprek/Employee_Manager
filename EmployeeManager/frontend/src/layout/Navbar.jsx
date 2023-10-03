@@ -7,10 +7,11 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            Employee Manager
+            <span className="font-weight-bold fs-3">Employee Manager</span>
           </Link>
+
           <Link
-            className="btn btn-outline-light"
+            className="btn btn-outline-light shadow"
             to="/createEmployee"
             type="submit"
           >

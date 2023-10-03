@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CreateEmployee from "./employee/CreateEmployee";
 import EditEmployee from "./employee/EditEmployee";
+import ViewEmployee from "./employee/ViewEmployee";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/createEmployee" element={<CreateEmployee />} />
           <Route exact path="/editEmployee/:id" element={<EditEmployee />} />
+          <Route exact path="/viewEmployee/:id" element={<ViewEmployee />} />
         </Routes>
       </Router>
     </div>
