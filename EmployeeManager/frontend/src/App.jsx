@@ -3,7 +3,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./layout/Navbar";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CreateEmployee from "./Employee/CreateEmployee";
+import CreateEmployee from "./employee/CreateEmployee";
+import EditEmployee from "./employee/EditEmployee";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/createEmployee" element={<CreateEmployee />} />
+          <Route exact path="/editEmployee/:id" element={<EditEmployee />} />
         </Routes>
       </Router>
     </div>

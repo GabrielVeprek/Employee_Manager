@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-export default function CreateEmployee() {
+export default function EditEmployee() {
   let navigate = useNavigate();
+  const { id } = useParams();
+
   const [employee, setEmployee] = useState({
     firstName: "",
     lastName: "",
@@ -18,14 +20,24 @@ export default function CreateEmployee() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await axios.post("http://localhost:8080/employee", employee);
+    await axios.put(`http://localhost:8080/employee/${id}`, employee);
     navigate("/");
   };
+
+  useEffect(() => {
+    loadEmployee();
+  }, []);
+
+  const loadEmployee = async () => {
+    const result = await axios.get(`http://localhost:8080/employee/${id}`);
+    setEmployee(result.data);
+  };
+
   return (
     <div className="container">
       <div className="row text-center">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Create Employee</h2>
+          <h2 className="text-center m-4">Edit Employee</h2>
           <form onSubmit={(event) => onSubmit(event)}>
             <div className="mb-3">
               <label htmlFor="FirstName" className="form-label">
@@ -63,6 +75,7 @@ export default function CreateEmployee() {
                 placeholder="E-Mail"
                 mail="E-Mail"
                 name="mail"
+                value={mail}
                 onChange={(event) => onInputChange(event)}
               />
             </div>
