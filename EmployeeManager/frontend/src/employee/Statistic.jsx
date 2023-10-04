@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -46,7 +45,7 @@ export default function Statistic() {
                     statistic.senior.lastName}
                 </li>
                 <li className="list-group-item">
-                  <b>Avergae Employee tenure : </b>
+                  <b>Average Employee tenure : </b>
                   {statistic.average}
                 </li>
               </ul>

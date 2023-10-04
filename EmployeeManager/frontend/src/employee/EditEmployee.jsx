@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function EditEmployee() {
@@ -24,6 +24,7 @@ export default function EditEmployee() {
     await axios.put(`http://localhost:8080/employee/${id}`, employee);
     navigate("/");
   };
+
 
   useEffect(() => {
     loadEmployee();
