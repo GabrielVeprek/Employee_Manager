@@ -91,7 +91,7 @@ export default function EditEmployee() {
                 onChange={(event) => onInputChange(event)}
               />
             </div>
-            <button type="submit" className="btn btn-outline-primary">
+            <button type="submit" className="btn btn-outline-success">
               Submit
             </button>
             <Link className="btn btn-danger mx-2" to="/">

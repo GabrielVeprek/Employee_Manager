@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function ViewEmployee() {
+  
   const [employee, setEmployee] = useState({
     firstName: "",
     lastName: "",
     mail: "",
+    entryDate: "",
   });
 
   const { id } = useParams();
