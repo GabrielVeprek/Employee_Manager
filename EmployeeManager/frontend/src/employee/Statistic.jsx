@@ -6,24 +6,24 @@ export default function Statistic() {
     <div className="container">
       <div className="row text-center">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Employee Details</h2>
+          <h2 className="text-center m-4">Employee Statistics</h2>
           <div className="card">
             <div className="card-header">
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  <b>First Name : </b>
+                  <b>Junior Employee : </b>
                 </li>
                 <li className="list-group-item">
-                  <b>Last Name : </b>
+                  <b>Senior Employee : </b>
                 </li>
                 <li className="list-group-item">
-                  <b>E-Mail : </b>
+                  <b>Avergae Employee Tenure : </b>
                 </li>
               </ul>
             </div>
           </div>
           <Link className="btn btn-primary my-2 " to="/">
-            See all
+            HOME
           </Link>
         </div>
       </div>
