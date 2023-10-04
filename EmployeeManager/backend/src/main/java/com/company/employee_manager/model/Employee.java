@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+
 @Entity
 public class Employee {
 
@@ -16,6 +18,9 @@ public class Employee {
     private String lastName;
 
     private String mail;
+
+    private LocalDate entryDate;
+
 
     public long getID() {
         return ID;
@@ -48,4 +53,13 @@ public class Employee {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+    public LocalDate getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(LocalDate entryDate) {
+        this.entryDate = entryDate;
+    }
+
 }

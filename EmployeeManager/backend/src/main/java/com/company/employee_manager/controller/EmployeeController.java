@@ -40,6 +40,7 @@ public class EmployeeController {
                     employee.setFirstName(newEmployee.getFirstName());
                     employee.setLastName(newEmployee.getLastName());
                     employee.setMail(newEmployee.getMail());
+                    employee.setEntryDate(newEmployee.getEntryDate());
                     return employeeRepository.save(employee);
                 }).orElseThrow(EmployeeNotFoundException::new);
     }
