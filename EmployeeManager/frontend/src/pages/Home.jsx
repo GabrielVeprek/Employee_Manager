@@ -22,10 +22,12 @@ export default function Home() {
   return (
     <div className="container">
       <div className="py-4">
-        <table class="table border shadow">
+        <table className="table border shadow">
           <thead>
             <tr className="font-weight-bold fs-5">
-            <th scope="col" className="text-primary">ID</th>
+              <th scope="col" className="text-primary">
+                ID
+              </th>
               <th scope="col">First-Name</th>
               <th scope="col">Last-Name</th>
               <th scope="col">E-Mail</th>
@@ -33,9 +35,8 @@ export default function Home() {
           </thead>
           <tbody className="font-weight-light fs-5">
             {employee.map((employee) => (
-              <tr>
+              <tr key={employee.id}>
                 <td className="text-primary">{employee.id}</td>
-
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
                 <td>{employee.mail}</td>

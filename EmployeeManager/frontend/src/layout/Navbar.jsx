@@ -9,14 +9,23 @@ export default function Navbar() {
           <Link className="navbar-brand" to="/">
             <span className="font-weight-bold fs-3">Employee Manager</span>
           </Link>
+          <div className="">
+            <Link
+              className="btn btn-outline-light border-light shadow mx-2"
+              to="/employeeStatistics"
+              type="submit"
+            >
+              Statistics
+            </Link>
 
-          <Link
-            className="btn btn-outline-light shadow"
-            to="/createEmployee"
-            type="submit"
-          >
-            Create Employee
-          </Link>
+            <Link
+              className="btn btn-outline-light border-primary  bg-success shadow mx-2"
+              to="/createEmployee"
+              type="submit"
+            >
+              Create Employee
+            </Link>
+          </div>
         </div>
       </nav>
     </div>

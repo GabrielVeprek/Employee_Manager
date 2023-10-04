@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CreateEmployee from "./employee/CreateEmployee";
 import EditEmployee from "./employee/EditEmployee";
 import ViewEmployee from "./employee/ViewEmployee";
+import Statistic from "./employee/Statistic";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/createEmployee" element={<CreateEmployee />} />
           <Route exact path="/editEmployee/:id" element={<EditEmployee />} />
           <Route exact path="/viewEmployee/:id" element={<ViewEmployee />} />
+          <Route exact path="/employeeStatistics" element={<Statistic />} />
         </Routes>
       </Router>
     </div>

@@ -10,9 +10,10 @@ export default function EditEmployee() {
     firstName: "",
     lastName: "",
     mail: "",
+    entryDate: "",
   });
 
-  const { firstName, lastName, mail } = employee;
+  const { firstName, lastName, mail, entryDate } = employee;
 
   const onInputChange = (event) => {
     setEmployee({ ...employee, [event.target.name]: event.target.value });
@@ -73,9 +74,20 @@ export default function EditEmployee() {
                 type={"text"}
                 className="form-control"
                 placeholder="E-Mail"
-                mail="E-Mail"
                 name="mail"
                 value={mail}
+                onChange={(event) => onInputChange(event)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="EntryDate" className="form-label">
+                Entry Date
+              </label>
+              <input
+                type={"date"}
+                className="form-control"
+                name="entryDate"
+                value={entryDate}
                 onChange={(event) => onInputChange(event)}
               />
             </div>
