@@ -51,7 +51,7 @@ export default function ViewEmployee() {
               </ul>
             </div>
           </div>
-          <Link className="btn btn-primary my-2 " to="/">
+          <Link className="btn btn-outline-primary my-3 shadow" to="/">
             See all
           </Link>
         </div>
