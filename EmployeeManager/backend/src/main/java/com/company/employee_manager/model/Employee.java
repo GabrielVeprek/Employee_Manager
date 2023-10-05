@@ -21,6 +21,18 @@ public class Employee {
 
     private LocalDate entryDate;
 
+    public Employee() {
+
+    }
+
+    public Employee(String firstName, String lastName, String mail, LocalDate entryDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mail = mail;
+        this.entryDate = entryDate;
+    }
+
+
 
     public long getID() {
         return ID;
