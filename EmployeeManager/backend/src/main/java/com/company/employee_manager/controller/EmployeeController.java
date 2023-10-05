@@ -6,6 +6,7 @@ import com.company.employee_manager.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin("http://localhost:5173/")
@@ -29,13 +30,13 @@ public class EmployeeController {
     }
 
     @GetMapping("/{ID}")
-    Employee findByID(@PathVariable long ID) throws EmployeeNotFoundException {
+    Employee findByID(@PathVariable UUID ID) throws EmployeeNotFoundException {
         return employeeRepository.findById(ID)
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @PutMapping("/{ID}")
-    Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable long ID) throws EmployeeNotFoundException {
+    Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable UUID ID) throws EmployeeNotFoundException {
         return employeeRepository.findById(ID)
                 .map(employee -> {
                     employee.setFirstName(newEmployee.getFirstName());
@@ -47,7 +48,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{ID}")
-    void deleteEmployee(@PathVariable long ID) throws EmployeeNotFoundException {
+    void deleteEmployee(@PathVariable UUID ID) throws EmployeeNotFoundException {
         if (!employeeRepository.existsById(ID)) {
             throw new EmployeeNotFoundException();
         }

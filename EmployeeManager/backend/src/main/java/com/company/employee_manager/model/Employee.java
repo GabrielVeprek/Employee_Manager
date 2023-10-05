@@ -5,13 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 public class Employee {
 
     @Id
     @GeneratedValue
-    private long ID;
+    private UUID ID;
 
     private String firstName;
 
@@ -21,24 +22,24 @@ public class Employee {
 
     private LocalDate entryDate;
 
-    public Employee() {
 
-    }
 
-    public Employee(String firstName, String lastName, String mail, LocalDate entryDate) {
+    public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate) {
+        this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
         this.entryDate = entryDate;
     }
 
+    public Employee() {
+    }
 
-
-    public long getID() {
+    public UUID getID() {
         return ID;
     }
 
-    public void setID(long ID) {
+    public void setID(UUID ID) {
         this.ID = ID;
     }
 
@@ -73,5 +74,4 @@ public class Employee {
     public void setEntryDate(LocalDate entryDate) {
         this.entryDate = entryDate;
     }
-
 }
