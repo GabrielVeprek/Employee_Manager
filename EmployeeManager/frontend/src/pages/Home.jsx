@@ -36,7 +36,7 @@ export default function Home() {
                     <tbody className="font-weight-light fs-5">
                     {employee.map((employee) => (
                         <tr key={employee.id}>
-                            <td className="text-primary">{employee.id}</td>
+                            <td className="text-primary">{employee.id.slice(0,4)}</td>
                             <td>{employee.firstName}</td>
                             <td>{employee.lastName}</td>
                             <td>{employee.mail}</td>
