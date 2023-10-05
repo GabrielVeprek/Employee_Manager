@@ -6,7 +6,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            <span className="font-weight-bold fs-3">Employee Manager</span>
+            <span className="font-weight-bold fs-3 text-decoration-underline">Employee Manager</span>
           </Link>
           <div>
             <Link
