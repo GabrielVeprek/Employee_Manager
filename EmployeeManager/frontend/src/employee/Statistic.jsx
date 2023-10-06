@@ -1,35 +1,34 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {sliceID} from "../logic/ids.js";
 
 export default function Statistic() {
-    const [slicedJuniorID, setSlicedJuniorID] = useState([])
-    const [slicedSeniorID, setSlicedSeniorID] = useState([])
+
+
     const [statistic, setStatistic] = useState({
         junior: "",
+        slicedJuniorID: "",
         senior: "",
+        slicedSeniorID: "",
         average: 0,
     });
 
     useEffect(() => {
         loadStatistics();
-        sliceEmployeeID();
-        sliceSeniorID();
     }, []);
 
+
+    // stuff like URL in file
     const loadStatistics = async () => {
         const result = await axios.get("http://localhost:8080/employeeStatistics");
-        setStatistic(result.data);
+        const data = {
+            ...result.data,
+            slicedJuniorID: sliceID(result.data.junior.id),
+            slicedSeniorID: sliceID(result.data.senior.id)
+        }
+        setStatistic(data);
     };
-
-    const sliceEmployeeID = async () => {
-        const result = await axios.get("http://localhost:8080/employeeStatistics");
-        setSlicedJuniorID(result.data.junior.id.slice(0, 4));
-    }
-    const sliceSeniorID = async () => {
-        const result = await axios.get("http://localhost:8080/employeeStatistics");
-        setSlicedSeniorID(result.data.senior.id.slice(0, 4));
-    }
 
 
     return (
@@ -44,8 +43,8 @@ export default function Statistic() {
 
                                     <b>Junior Employee : </b>
                                     <Link to={`/viewEmployee/${statistic.junior.id}`}>
-                                    {"ID  " +
-                                        slicedJuniorID}      </Link>
+                                        {"ID  " +
+                                            statistic.slicedJuniorID}      </Link>
                                     {", " +
                                         statistic.junior.firstName +
                                         " " +
@@ -55,9 +54,9 @@ export default function Statistic() {
                                 <li className="list-group-item">
                                     <b>Senior Employee : </b>
                                     <Link to={`/viewEmployee/${statistic.senior.id}`}>
-                                    {"ID  " +
-                                        slicedSeniorID
-                                    } </Link>
+                                        {"ID  " +
+                                            statistic.slicedSeniorID
+                                        } </Link>
                                     {", " +
                                         statistic.senior.firstName +
                                         " " +
@@ -65,7 +64,7 @@ export default function Statistic() {
                                 </li>
                                 <li className="list-group-item">
                                     <b>Average Employee tenure : </b>
-                                    {statistic.average.toString().slice(0,3)}
+                                    {statistic.average.toString().slice(0, 3)}
                                 </li>
                             </ul>
                         </div>

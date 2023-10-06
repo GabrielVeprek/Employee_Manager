@@ -11,7 +11,6 @@ export default function Navbar() {
               <span className="font-weight-bold fs-3 text-decoration-underline m-3">Employee Manager</span>
             </Link>
           </div>
-
           <div>
             <Link
               className="btn btn-outline-light border-light shadow mx-2"
