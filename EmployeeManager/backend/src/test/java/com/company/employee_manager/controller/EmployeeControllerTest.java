@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class EmployeeControllerTest {
-    /*
+
 
     EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
     EmployeeController employeeController = new EmployeeController(employeeRepository);
@@ -24,9 +24,9 @@ class EmployeeControllerTest {
 
     @Test
     void saveEmployee() {
-        var employee = new Employee("Tom", "Bond", "mail", LocalDate.of(2000, 1, 1));
+        var employee = new Employee(null,"Tom", "Bond", "mail", LocalDate.of(2000, 1, 1));
         when(employeeController.saveEmployee(employee)).thenReturn(
-                new Employee("Tom", "Bond", "mail", LocalDate.of(2000, 1, 1)));
+                new Employee(null,"Tom", "Bond", "mail", LocalDate.of(2000, 1, 1)));
 
         var result = employeeController.saveEmployee(employee);
 
@@ -41,5 +41,4 @@ class EmployeeControllerTest {
     void deleteEmployee() {
 
     }
-*/
 }

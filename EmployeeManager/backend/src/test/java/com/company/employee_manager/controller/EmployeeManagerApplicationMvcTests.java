@@ -13,8 +13,12 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDate;
+import java.util.Optional;
+import java.util.UUID;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(EmployeeController.class)
 public class EmployeeManagerApplicationMvcTests {
@@ -32,7 +36,7 @@ public class EmployeeManagerApplicationMvcTests {
     @Test
     void getAll() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(url).contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(status().isOk());
 
         verify(employeeRepository).findAll();
     }
@@ -45,7 +49,7 @@ public class EmployeeManagerApplicationMvcTests {
         mockMvc.perform(MockMvcRequestBuilders.post(url)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(status().isOk());
 
         var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1));
         verify(employeeRepository).save(employee);
