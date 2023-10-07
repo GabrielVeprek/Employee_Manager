@@ -54,5 +54,19 @@ public class EmployeeManagerApplicationMvcTests {
         var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1));
         verify(employeeRepository).save(employee);
     }
+    @Test
+    void add2() throws Exception {
+        var json = """
+                {"firstName": "a","lastName": "a","mail": "a","entryDate": "2000-01-01"}""";
+
+        mockMvc.perform(MockMvcRequestBuilders.post(url)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isOk());
+
+        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1));
+        verify(employeeRepository).save(employee);
+    }
+
 }
 
