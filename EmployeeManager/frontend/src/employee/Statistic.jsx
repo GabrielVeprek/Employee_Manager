@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {sliceID} from "../logic/ids.js";
-import {HomeButton} from "./components/HomeButton.jsx";
+import {HomeButton} from "./buttonComponent/HomeButton.jsx";
 
 export default function Statistic() {
 

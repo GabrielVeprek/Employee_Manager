@@ -1,7 +1,7 @@
 import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {HomeButton} from "./components/HomeButton.jsx";
+import {HomeButton} from "./buttonComponent/HomeButton.jsx";
 
 export default function ViewEmployee() {
 

@@ -1,7 +1,8 @@
 import axios from "axios";
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import {CancelButton} from "./components/CancelButton.jsx";
+import {CancelButton} from "./buttonComponent/CancelButton.jsx";
+import {SubmitButton} from "./buttonComponent/SubmitButton.jsx";
 
 export default function CreateEmployee() {
     let navigate = useNavigate();
@@ -82,9 +83,7 @@ export default function CreateEmployee() {
                                 onChange={(event) => onInputChange(event)}
                             />
                         </div>
-                        <button type="submit" className="btn btn-outline-primary">
-                            Submit
-                        </button>
+                        <SubmitButton/>
                         <CancelButton/>
                     </form>
                 </div>
