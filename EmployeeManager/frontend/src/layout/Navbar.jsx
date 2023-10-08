@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import {StatisticButton} from "./buttonComponents/StatisticButton.jsx";
 import {CreateEmployeeButton} from "./buttonComponents/CreateEmployeeButton.jsx";
 import {HomePageImage} from "./buttonComponents/HomePageImage.jsx";
