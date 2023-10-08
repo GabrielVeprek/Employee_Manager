@@ -3,6 +3,7 @@ import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {CancelButton} from "./buttonComponent/CancelButton.jsx";
 import {SubmitButton} from "./buttonComponent/SubmitButton.jsx";
+import {Create_EditMask} from "./create-editComponent/Create_EditMask.jsx";
 
 export default function CreateEmployee() {
     let navigate = useNavigate();
@@ -26,68 +27,64 @@ export default function CreateEmployee() {
     };
 
     return (
-        <div className="container">
-            <div className="row text-center">
-                <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-4">Create Employee</h2>
+        <Create_EditMask>
+            <h2 className="text-center m-4">Create Employee</h2>
 
-                    <form onSubmit={(event) => onSubmit(event)}>
-                        <div className="mb-3">
-                            <label htmlFor="FirstName" className="form-label">
-                                First-Name
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="First-Name"
-                                name="firstName"
-                                value={firstName}
-                                onChange={(event) => onInputChange(event)}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="LastName" className="form-label">
-                                Last-Name
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="Last-Name"
-                                name="lastName"
-                                value={lastName}
-                                onChange={(event) => onInputChange(event)}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="E-Mail" className="form-label">
-                                E-Mail
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control"
-                                placeholder="E-Mail"
-                                name="mail"
-                                value={mail}
-                                onChange={(event) => onInputChange(event)}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="EntryDate" className="form-label">
-                                Entry Date
-                            </label>
-                            <input
-                                type={"date"}
-                                className="form-control"
-                                name="entryDate"
-                                value={entryDate}
-                                onChange={(event) => onInputChange(event)}
-                            />
-                        </div>
-                        <SubmitButton/>
-                        <CancelButton/>
-                    </form>
+            <form onSubmit={(event) => onSubmit(event)}>
+                <div className="mb-3">
+                    <label htmlFor="FirstName" className="form-label">
+                        First-Name
+                    </label>
+                    <input
+                        type={"text"}
+                        className="form-control"
+                        placeholder="First-Name"
+                        name="firstName"
+                        value={firstName}
+                        onChange={(event) => onInputChange(event)}
+                    />
                 </div>
-            </div>
-        </div>
+                <div className="mb-3">
+                    <label htmlFor="LastName" className="form-label">
+                        Last-Name
+                    </label>
+                    <input
+                        type={"text"}
+                        className="form-control"
+                        placeholder="Last-Name"
+                        name="lastName"
+                        value={lastName}
+                        onChange={(event) => onInputChange(event)}
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="E-Mail" className="form-label">
+                        E-Mail
+                    </label>
+                    <input
+                        type={"text"}
+                        className="form-control"
+                        placeholder="E-Mail"
+                        name="mail"
+                        value={mail}
+                        onChange={(event) => onInputChange(event)}
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="EntryDate" className="form-label">
+                        Entry Date
+                    </label>
+                    <input
+                        type={"date"}
+                        className="form-control"
+                        name="entryDate"
+                        value={entryDate}
+                        onChange={(event) => onInputChange(event)}
+                    />
+                </div>
+                <SubmitButton/>
+                <CancelButton/>
+            </form>
+        </Create_EditMask>
     );
 }
