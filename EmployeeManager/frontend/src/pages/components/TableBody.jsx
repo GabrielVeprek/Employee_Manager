@@ -30,20 +30,17 @@ export function TableBody() {
             <td>
                 <Link
                     className="btn btn-primary mx-2 shadow"
-                    to={`/viewEmployee/${employee.id}`}
-                >
+                    to={`/viewEmployee/${employee.id}`}>
                     View
                 </Link>
                 <Link
                     className="btn btn-outline-primary mx-2 shadow"
-                    to={`/editEmployee/${employee.id}`}
-                >
+                    to={`/editEmployee/${employee.id}`}>
                     Edit
                 </Link>
                 <button
                     className="btn btn-danger mx-2 shadow"
-                    onClick={() => deleteEmployee(employee.id)}
-                >
+                    onClick={() => deleteEmployee(employee.id)}>
                     Delete
                 </button>
             </td>
