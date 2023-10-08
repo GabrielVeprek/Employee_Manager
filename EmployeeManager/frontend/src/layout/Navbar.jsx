@@ -10,8 +10,7 @@ export default function Navbar() {
                     <div>
                         <Link className="navbar-brand" to="/">
                             <img className="img-fluid mb-2" src="../src/images/Icon.png" width="140" height="150"/>
-                            <span
-                                className="font-weight-bold fs-3 text-decoration-underline m-3">Employee Manager</span>
+                            <span className="font-weight-bold fs-3 text-decoration-underline m-3">Employee Manager</span>
                         </Link>
                     </div>
                     <div>
