@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {sliceID} from "../logic/ids.js";
+import {HomeButton} from "./components/HomeButton.jsx";
 
 export default function Statistic() {
 
@@ -44,7 +45,8 @@ export default function Statistic() {
                                     <b>Junior Employee : </b>
                                     <Link to={`/viewEmployee/${statistic.junior.id}`}>
                                         {"ID  " +
-                                            statistic.slicedJuniorID}      </Link>
+                                            statistic.slicedJuniorID}
+                                    </Link>
                                     {", " +
                                         statistic.junior.firstName +
                                         " " +
@@ -55,8 +57,8 @@ export default function Statistic() {
                                     <b>Senior Employee : </b>
                                     <Link to={`/viewEmployee/${statistic.senior.id}`}>
                                         {"ID  " +
-                                            statistic.slicedSeniorID
-                                        } </Link>
+                                            statistic.slicedSeniorID}
+                                    </Link>
                                     {", " +
                                         statistic.senior.firstName +
                                         " " +
@@ -69,9 +71,7 @@ export default function Statistic() {
                             </ul>
                         </div>
                     </div>
-                    <Link className="btn btn-outline-primary my-3 shadow" to="/">
-                        HOME
-                    </Link>
+                    <HomeButton/>
                 </div>
             </div>
         </div>

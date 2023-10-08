@@ -3,7 +3,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./layout/Navbar";
 import Home from "./pages/Home.jsx";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import CreateEmployee from "./employee/CreateEmployee";
+import CreateEmployee from "./employee/CreateEmployee.jsx";
 import EditEmployee from "./employee/EditEmployee";
 import ViewEmployee from "./employee/ViewEmployee";
 import Statistic from "./employee/Statistic";
