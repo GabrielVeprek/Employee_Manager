@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import {StatisticButton} from "./buttonComponents/StatisticButton.jsx";
 
 export default function Navbar() {
   return (
@@ -12,14 +13,8 @@ export default function Navbar() {
             </Link>
           </div>
           <div>
-            <Link
-              className="btn btn-outline-light border-light shadow mx-2"
-              to="/employeeStatistics"
-              type="submit"
-            >
-              Statistics
-            </Link>
 
+<StatisticButton/>
             <Link
               className="btn btn-outline-light border-primary  bg-success shadow"
               to="/createEmployee"
