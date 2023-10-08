@@ -1,6 +1,6 @@
 
-import {TableHead} from "./components/TableHead.jsx";
-import {TableBody} from "./components/TableBody.jsx";
+import {TableHead} from "./component/TableHead.jsx";
+import {TableBody} from "./component/TableBody.jsx";
 
 export default function Home() {
 

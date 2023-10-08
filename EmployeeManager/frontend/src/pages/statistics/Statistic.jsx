@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {sliceID} from "../logic/ids.js";
-import {HomeButton} from "./buttonComponent/HomeButton.jsx";
-import {Create_EditMask} from "./create_editComponent/mask/Create_EditMask.jsx";
+import {sliceID} from "../../logic/ids.js";
+import {HomeButton} from "../../employee/buttonComponent/HomeButton.jsx";
+import {Create_EditMask} from "../../employee/create_editComponent/mask/Create_EditMask.jsx";
+import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 
 export default function Statistic() {
     const URL = "http://localhost:8080/employeeStatistics";
@@ -39,17 +40,7 @@ export default function Statistic() {
             <div className="card">
                 <div className="card-header">
                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item">
-                            <b>Junior Employee : </b>
-                            <Link to={`/viewEmployee/${statistic.junior.id}`}>
-                                {"ID  " +
-                                    statistic.slicedJuniorID}
-                            </Link>
-                            {", " +
-                                statistic.junior.firstName +
-                                " " +
-                                statistic.junior.lastName}
-                        </li>
+                        <JuniorEmployee junior={statistic.junior}/>
                         <li className="list-group-item">
                             <b>Senior Employee : </b>
                             <Link to={`/viewEmployee/${statistic.senior.id}`}>
