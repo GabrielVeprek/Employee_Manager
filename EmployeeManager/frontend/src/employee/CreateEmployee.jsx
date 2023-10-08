@@ -3,7 +3,7 @@ import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {CancelButton} from "./buttonComponent/CancelButton.jsx";
 import {SubmitButton} from "./buttonComponent/SubmitButton.jsx";
-import {Create_EditMask} from "./create-editComponent/Create_EditMask.jsx";
+import {Create_EditMask} from "./create_editComponent/Create_EditMask.jsx";
 
 export default function CreateEmployee() {
     let navigate = useNavigate();
@@ -29,7 +29,6 @@ export default function CreateEmployee() {
     return (
         <Create_EditMask>
             <h2 className="text-center m-4">Create Employee</h2>
-
             <form onSubmit={(event) => onSubmit(event)}>
                 <div className="mb-3">
                     <label htmlFor="FirstName" className="form-label">
