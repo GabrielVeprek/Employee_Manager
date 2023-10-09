@@ -3,7 +3,11 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {HomeButton} from "../buttonComponent/HomeButton.jsx";
 import {Create_EditMask} from "../create&edit/component/mask/Create_EditMask.jsx";
-import {DetailsBody} from "./component/DetailsBody.jsx";
+import {FirstName} from "./component/bodyList/FirstName.jsx";
+import {LastName} from "./component/bodyList/LastName.jsx";
+import {Mail} from "./component/bodyList/Mail.jsx";
+import {EntryDate} from "./component/bodyList/EntryDate.jsx";
+import {BodyList} from "./component/bodyList/BodyList.jsx";
 
 export default function ViewEmployee() {
 
@@ -28,7 +32,12 @@ export default function ViewEmployee() {
     return (
         <Create_EditMask>
             <h2 className="text-center m-4">Employee Details</h2>
-            <DetailsBody employee={employee}/>
+            <div className="card">
+                <div className="card-header">
+                    Employee - {employee.id}
+                    <BodyList employee={employee}/>
+                </div>
+            </div>
             <HomeButton/>
         </Create_EditMask>
     );
