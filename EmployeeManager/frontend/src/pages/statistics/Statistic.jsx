@@ -40,7 +40,17 @@ export default function Statistic() {
             <div className="card">
                 <div className="card-header">
                     <ul className="list-group list-group-flush">
-                        <JuniorEmployee junior={statistic.junior}/>
+                        <li className="list-group-item">
+                            <b>Junior Employee : </b>
+                            <Link to={`/viewEmployee/${statistic.junior.id}`}>
+                                {"ID  " +
+                                    statistic.slicedJuniorID}
+                            </Link>
+                            {", " +
+                                statistic.junior.firstName +
+                                " " +
+                                statistic.junior.lastName}
+                        </li>
                         <li className="list-group-item">
                             <b>Senior Employee : </b>
                             <Link to={`/viewEmployee/${statistic.senior.id}`}>
