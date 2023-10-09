@@ -1,4 +1,4 @@
-import {BodyList} from "./BodyList.jsx";
+import {BodyList} from "./BodyList/BodyList.jsx";
 
 export function DetailsBody(employee) {
 
