@@ -3,9 +3,9 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./layout/Navbar";
 import Home from "./pages/home/Home.jsx";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import CreateEmployee from "./employee/CreateEmployee.jsx";
-import EditEmployee from "./employee/EditEmployee";
-import ViewEmployee from "./employee/ViewEmployee";
+import CreateEmployee from "./employee/create&edit/CreateEmployee.jsx";
+import EditEmployee from "./employee/create&edit/EditEmployee.jsx";
+import ViewEmployee from "./employee/view/ViewEmployee.jsx";
 import Statistic from "./pages/statistics/Statistic.jsx";
 
 function App() {

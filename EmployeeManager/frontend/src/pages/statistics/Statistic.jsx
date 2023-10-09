@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {sliceID} from "../../logic/ids.js";
 import {HomeButton} from "../../employee/buttonComponent/HomeButton.jsx";
-import {Create_EditMask} from "../../employee/create_editComponent/mask/Create_EditMask.jsx";
+import {Create_EditMask} from "../../employee/create&edit/component/mask/Create_EditMask.jsx";
 import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 
 export default function Statistic() {

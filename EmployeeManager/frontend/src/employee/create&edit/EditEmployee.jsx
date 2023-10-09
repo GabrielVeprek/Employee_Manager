@@ -1,6 +1,6 @@
 
-import {Create_EditMask} from "./create_editComponent/mask/Create_EditMask.jsx";
-import {EditInputFields} from "./create_editComponent/InputFields/EditInputFields.jsx";
+import {Create_EditMask} from "./component/mask/Create_EditMask.jsx";
+import {EditInputFields} from "./component/inputFields/EditInputFields.jsx";
 
 export default function EditEmployee() {
 
