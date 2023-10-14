@@ -4,6 +4,7 @@ import axios from "axios";
 import {HomeButton} from "../buttonComponent/HomeButton.jsx";
 import {Create_EditMask} from "../create&edit/component/mask/Create_EditMask.jsx";
 import {BodyList} from "./component/bodyList/BodyList.jsx";
+import {employeeURL} from "../../pages/URLs/employeeURL.js";
 
 export default function ViewEmployee() {
 
@@ -21,7 +22,7 @@ export default function ViewEmployee() {
     }, []);
 
     const loadEmployee = async () => {
-        const result = await axios.get(`http://localhost:8080/employee/${id}`);
+        const result = await axios.get(`${employeeURL}/${id}`);
         setEmployee(result.data);
     };
 

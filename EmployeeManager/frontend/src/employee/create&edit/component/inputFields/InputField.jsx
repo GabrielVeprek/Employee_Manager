@@ -1,5 +1,6 @@
 import {SubmitButton} from "../../../buttonComponent/SubmitButton.jsx";
 import {CancelButton} from "../../../buttonComponent/CancelButton.jsx";
+
 export function InputField({employee, onInputChange,onSubmit}) {
 
     return (
