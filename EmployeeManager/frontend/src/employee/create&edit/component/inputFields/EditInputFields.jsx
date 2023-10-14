@@ -5,6 +5,8 @@ import {InputField} from "./InputField.jsx";
 import {employeeURL} from "../../../../pages/URLs/employeeURL.js";
 
 export function EditInputFields() {
+
+
     let navigate = useNavigate();
     const {id} = useParams();
 
@@ -21,7 +23,7 @@ export function EditInputFields() {
     }, []);
 
     const loadEmployee = async () => {
-        const result = await axios.get(`${employeeURL}${id}`);
+        const result = await axios.get(`${employeeURL}/${id}`);
         setEmployee(result.data);
     };
     const onInputChange = (event) => {
@@ -29,7 +31,7 @@ export function EditInputFields() {
     };
     const onSubmit = async (event) => {
         event.preventDefault();
-        await axios.put(`http://localhost:8080/employee/${id}`, employee);
+        await axios.put(`${employeeURL}/${id}`, employee);
         navigate("/");
     };
 
