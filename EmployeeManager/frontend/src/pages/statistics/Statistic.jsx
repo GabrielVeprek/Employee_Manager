@@ -4,10 +4,10 @@ import axios from "axios";
 import {sliceID} from "../../logic/ids.js";
 import {HomeButton} from "../../employee/buttonComponent/HomeButton.jsx";
 import {Create_EditMask} from "../../employee/create&edit/component/mask/Create_EditMask.jsx";
-import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
+import {employeeStatisticsURL} from "../URLs/employeeStatisticsURL.js";
 
 export default function Statistic() {
-    const URL = "http://localhost:8080/employeeStatistics";
+    const URL = employeeStatisticsURL();
 
     const [statistic, setStatistic] = useState({
         junior: "",
@@ -21,8 +21,6 @@ export default function Statistic() {
         loadStatistics();
     }, []);
 
-
-    // stuff like URL in file
     const loadStatistics = async () => {
         const result = await axios.get(URL);
         const data = {
