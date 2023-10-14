@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
 import {InputField} from "./InputField.jsx";
+import {employeeURL} from "../../../../pages/URLs/employeeURL.js";
 
 export function CreateInputFields() {
     let navigate = useNavigate();
@@ -18,7 +19,7 @@ export function CreateInputFields() {
     };
     const onSubmit = async (event) => {
         event.preventDefault();
-        await axios.post(`http://localhost:8080/employee`, employee);
+        await axios.post(employeeURL, employee);
         navigate("/");
     };
 

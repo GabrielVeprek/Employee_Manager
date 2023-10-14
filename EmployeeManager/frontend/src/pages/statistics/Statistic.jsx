@@ -5,9 +5,8 @@ import {sliceID} from "../../logic/ids.js";
 import {HomeButton} from "../../employee/buttonComponent/HomeButton.jsx";
 import {Create_EditMask} from "../../employee/create&edit/component/mask/Create_EditMask.jsx";
 import {employeeStatisticsURL} from "../URLs/employeeStatisticsURL.js";
-
 export default function Statistic() {
-    const URL = employeeStatisticsURL();
+
 
     const [statistic, setStatistic] = useState({
         junior: "",
@@ -22,7 +21,7 @@ export default function Statistic() {
     }, []);
 
     const loadStatistics = async () => {
-        const result = await axios.get(URL);
+        const result = await axios.get(employeeStatisticsURL);
         const data = {
             ...result.data,
             slicedJuniorID: sliceID(result.data.junior.id),

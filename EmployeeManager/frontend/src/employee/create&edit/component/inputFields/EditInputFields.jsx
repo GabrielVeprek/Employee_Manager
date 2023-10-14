@@ -2,6 +2,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {InputField} from "./InputField.jsx";
+import {employeeURL} from "../../../../pages/URLs/employeeURL.js";
 
 export function EditInputFields() {
     let navigate = useNavigate();
@@ -20,7 +21,7 @@ export function EditInputFields() {
     }, []);
 
     const loadEmployee = async () => {
-        const result = await axios.get(`http://localhost:8080/employee/${id}`);
+        const result = await axios.get(`${employeeURL}${id}`);
         setEmployee(result.data);
     };
     const onInputChange = (event) => {

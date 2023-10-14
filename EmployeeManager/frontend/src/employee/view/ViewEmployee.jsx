@@ -3,10 +3,6 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {HomeButton} from "../buttonComponent/HomeButton.jsx";
 import {Create_EditMask} from "../create&edit/component/mask/Create_EditMask.jsx";
-import {FirstName} from "./component/bodyList/FirstName.jsx";
-import {LastName} from "./component/bodyList/LastName.jsx";
-import {Mail} from "./component/bodyList/Mail.jsx";
-import {EntryDate} from "./component/bodyList/EntryDate.jsx";
 import {BodyList} from "./component/bodyList/BodyList.jsx";
 
 export default function ViewEmployee() {
