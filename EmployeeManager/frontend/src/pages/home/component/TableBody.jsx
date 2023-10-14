@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {employeeURL} from "../../URLs/employeeURL.js";
 
 export function TableBody() {
 
@@ -11,12 +12,12 @@ export function TableBody() {
     }, []);
 
     const loadEmployee = async () => {
-        const result = await axios.get("http://localhost:8080/employee");
+        const result = await axios.get(employeeURL);
         setEmployee(result.data);
     };
 
     const deleteEmployee = async (id) => {
-        await axios.delete(`http://localhost:8080/employee/${id}`);
+        await axios.delete(`${employeeURL}/${id}`);
         loadEmployee();
     };
 
