@@ -1,5 +1,5 @@
-import {SubmitButton} from "../buttonComponent/SubmitButton.jsx";
-import {CancelButton} from "../buttonComponent/CancelButton.jsx";
+import {SubmitButton} from "../../buttonComponent/SubmitButton.jsx";
+import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
 import {useEditInputField} from "./customeHook/useEditInputField.jsx";
 import {FirstName} from "./component/FirstName.jsx";
 import {LastName} from "./component/LastName.jsx";

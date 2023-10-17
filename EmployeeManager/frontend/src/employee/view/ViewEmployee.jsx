@@ -1,9 +1,9 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {HomeButton} from "../buttonComponent/HomeButton.jsx";
+import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
 import {CreateEditMask} from "../create&edit/Create&EditMask.jsx";
-import {BodyList} from "./component/bodyList/BodyList.jsx";
+import {BodyList} from "./component/BodyList.jsx";
 import {employeeURL} from "../../URLs/employeeURL.js";
 
 export default function ViewEmployee() {
