@@ -1,8 +1,8 @@
-export function Mail(employee) {
+export function Mail({mail}) {
     return (
         <li className="list-group-item">
             <b>E-Mail : </b>
-            {employee.employee.employee.mail}
+            {mail}
         </li>
     )
 }

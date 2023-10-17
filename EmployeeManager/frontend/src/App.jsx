@@ -7,7 +7,6 @@ import CreateEmployee from "./employee/create&edit/CreateEmployee.jsx";
 import EditEmployee from "./employee/create&edit/EditEmployee.jsx";
 import ViewEmployee from "./employee/view/ViewEmployee.jsx";
 import Statistic from "./pages/statistics/Statistic.jsx";
-
 function App() {
     return (
         <div className="App">
@@ -24,5 +23,4 @@ function App() {
         </div>
     );
 }
-
 export default App;

@@ -1,8 +1,8 @@
-export function EntryDate(employee) {
+export function EntryDate({entryDate}) {
     return (
         <li className="list-group-item">
             <b>Entry Date : </b>
-            {employee.employee.employee.entryDate}
+            {entryDate}
         </li>
     )
 }

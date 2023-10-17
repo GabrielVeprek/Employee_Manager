@@ -1,5 +1,4 @@
-// eslint-disable-next-line react/prop-types
-export function Create_EditMask({ children }) {
+export function CreateEditMask({ children }) {
     return (
         <div className="container">
             <div className="row text-center">

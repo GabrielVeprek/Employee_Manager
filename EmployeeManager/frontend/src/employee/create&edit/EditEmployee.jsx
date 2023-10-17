@@ -1,14 +1,15 @@
 
-import {Create_EditMask} from "./component/mask/Create_EditMask.jsx";
-import {EditInputFields} from "./component/inputFields/EditInputFields.jsx";
+import {CreateEditMask} from "./Create&EditMask.jsx";
+import {InputField} from "./InputField.jsx";
+import {useParams} from "react-router-dom";
 
 export default function EditEmployee() {
-
+    const {id} = useParams();
 
     return (
-        <Create_EditMask>
+        <CreateEditMask>
             <h2 className="text-center m-4">Edit Employee</h2>
-                <EditInputFields/>
-        </Create_EditMask>
+                <InputField id={id}/>
+        </CreateEditMask>
     );
 }

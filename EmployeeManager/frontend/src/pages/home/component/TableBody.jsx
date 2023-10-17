@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {employeeURL} from "../../URLs/employeeURL.js";
+import {employeeURL} from "../../../URLs/employeeURL.js";
 
 export function TableBody() {
 

@@ -1,15 +1,10 @@
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {InputField} from "./InputField.jsx";
-import {employeeURL} from "../../../../pages/URLs/employeeURL.js";
+import {employeeURL} from "../../../URLs/employeeURL.js";
 
-export function EditInputFields() {
-
-
+export function useEditInputField(id) {
     let navigate = useNavigate();
-    const {id} = useParams();
-
     const [employee, setEmployee] = useState({
         firstName: "",
         lastName: "",
@@ -17,10 +12,11 @@ export function EditInputFields() {
         entryDate: "",
     });
 
-
     useEffect(() => {
-        loadEmployee();
-    }, []);
+        if (id !== undefined) {
+            loadEmployee();
+        }
+    }, [id]);
 
     const loadEmployee = async () => {
         const result = await axios.get(`${employeeURL}/${id}`);
@@ -29,14 +25,20 @@ export function EditInputFields() {
     const onInputChange = (event) => {
         setEmployee({...employee, [event.target.name]: event.target.value});
     };
-    const onSubmit = async (event) => {
+    const onUpdate = async (event) => {
         event.preventDefault();
         await axios.put(`${employeeURL}/${id}`, employee);
         navigate("/");
     };
+    const onCreate = async (event) => {
+        event.preventDefault();
+        await axios.post(employeeURL, employee);
+        navigate("/");
+    };
 
+    const onSubmit = id === undefined ? onCreate : onUpdate
 
     return (
-        <InputField employee={employee} onInputChange={onInputChange} onSubmit={onSubmit}/>
+        {onInputChange, onSubmit, employee}
     );
 }

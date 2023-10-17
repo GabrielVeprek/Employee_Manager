@@ -1,8 +1,8 @@
-export function FirstName(employee) {
+export function FirstName({firstName}) {
     return (
             <li className="list-group-item">
                 <b>First Name : </b>
-                {employee.employee.employee.firstName}
+                {firstName}
             </li>
     )
 }

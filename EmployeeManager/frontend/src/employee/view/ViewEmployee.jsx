@@ -2,9 +2,9 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {HomeButton} from "../buttonComponent/HomeButton.jsx";
-import {Create_EditMask} from "../create&edit/component/mask/Create_EditMask.jsx";
+import {CreateEditMask} from "../create&edit/Create&EditMask.jsx";
 import {BodyList} from "./component/bodyList/BodyList.jsx";
-import {employeeURL} from "../../pages/URLs/employeeURL.js";
+import {employeeURL} from "../../URLs/employeeURL.js";
 
 export default function ViewEmployee() {
 
@@ -27,7 +27,7 @@ export default function ViewEmployee() {
     };
 
     return (
-        <Create_EditMask>
+        <CreateEditMask>
             <h2 className="text-center m-4">Employee Details</h2>
             <div className="card">
                 <div className="card-header">
@@ -36,6 +36,6 @@ export default function ViewEmployee() {
                 </div>
             </div>
             <HomeButton/>
-        </Create_EditMask>
+        </CreateEditMask>
     );
 }

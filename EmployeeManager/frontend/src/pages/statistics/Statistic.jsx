@@ -1,13 +1,17 @@
-import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {sliceID} from "../../logic/ids.js";
 import {HomeButton} from "../../employee/buttonComponent/HomeButton.jsx";
-import {Create_EditMask} from "../../employee/create&edit/component/mask/Create_EditMask.jsx";
-import {employeeStatisticsURL} from "../URLs/employeeStatisticsURL.js";
+import {CreateEditMask} from "../../employee/create&edit/Create&EditMask.jsx";
+import {employeeStatisticsURL} from "../../URLs/employeeStatisticsURL.js";
+import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
+import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
+import {Avergae} from "./component/Avergae.jsx";
+
+
 export default function Statistic() {
 
-
+//splitt the statistic
     const [statistic, setStatistic] = useState({
         junior: "",
         slicedJuniorID: "",
@@ -25,48 +29,34 @@ export default function Statistic() {
         const data = {
             ...result.data,
             slicedJuniorID: sliceID(result.data.junior.id),
-            slicedSeniorID: sliceID(result.data.senior.id)
+            slicedSeniorID: sliceID(result.data.senior.id),
+            average: sliceID(result.data.average.toString())
         }
         setStatistic(data);
     };
-
-
     return (
-        <Create_EditMask>
+        <CreateEditMask>
             <h2 className="text-center m-4 text-primary">Employee Statistics</h2>
             <div className="card">
                 <div className="card-header">
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                            <b>Junior Employee : </b>
-                            <Link to={`/viewEmployee/${statistic.junior.id}`}>
-                                {"ID  " +
-                                    statistic.slicedJuniorID}
-                            </Link>
-                            {", " +
-                                statistic.junior.firstName +
-                                " " +
-                                statistic.junior.lastName}
+                            <JuniorEmployee id={statistic.junior.id} slicedID={statistic.slicedJuniorID}
+                                            firstName={statistic.junior.firstName}
+                                            lastName={statistic.junior.lastName}/>
                         </li>
                         <li className="list-group-item">
-                            <b>Senior Employee : </b>
-                            <Link to={`/viewEmployee/${statistic.senior.id}`}>
-                                {"ID  " +
-                                    statistic.slicedSeniorID}
-                            </Link>
-                            {", " +
-                                statistic.senior.firstName +
-                                " " +
-                                statistic.senior.lastName}
+                            <SeniorEmployee id={statistic.senior.id} slicedID={statistic.slicedSeniorID}
+                                            firstName={statistic.senior.firstName}
+                                            lastName={statistic.senior.lastName}/>
                         </li>
                         <li className="list-group-item">
-                            <b>Average Employee tenure : </b>
-                            {statistic.average.toString().slice(0, 3)}
+                            <Avergae average={statistic.average}/>
                         </li>
                     </ul>
                 </div>
             </div>
             <HomeButton/>
-        </Create_EditMask>
+        </CreateEditMask>
     );
 }

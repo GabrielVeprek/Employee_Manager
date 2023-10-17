@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom";
 
-export function JuniorEmployee({id, slicedID, firstName, lastName}) {
+export function SeniorEmployee({id, slicedID, firstName, lastName}) {
     return (
         <>
-            <b>Junior Employee : </b>
+            <b>Senior Employee : </b>
             <Link to={`/viewEmployee/${id}`}>
                 {"ID  " +
                     slicedID}
