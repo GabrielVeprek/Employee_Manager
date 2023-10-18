@@ -24,16 +24,12 @@ public class Employee {
     private LocalDate entryDate;
 
 
-
     public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
         this.entryDate = entryDate;
-    }
-
-    public Employee() {
     }
 
     public UUID getID() {
@@ -75,6 +71,10 @@ public class Employee {
     public void setEntryDate(LocalDate entryDate) {
         this.entryDate = entryDate;
     }
+
+    public Employee() {
+    }
+
 
     @Override
     public boolean equals(Object o) {

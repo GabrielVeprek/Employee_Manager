@@ -3,6 +3,7 @@ package com.company.employee_manager.controller;
 import com.company.employee_manager.exception.EmployeeNotFoundException;
 import com.company.employee_manager.model.Employee;
 import com.company.employee_manager.repository.EmployeeRepository;
+import org.hibernate.resource.beans.spi.BeanInstanceProducer;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class EmployeeController {
     Employee findByID(@PathVariable UUID ID) throws EmployeeNotFoundException {
         return employeeRepository.findById(ID)
                 .orElseThrow(EmployeeNotFoundException::new);
+
     }
 
     @PutMapping("/{ID}")
