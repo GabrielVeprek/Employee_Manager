@@ -70,7 +70,7 @@ export function Register() {
                             />
                         </div>
                     </form>
-                    <Link type="submit" to={"/"} className="btn btn-outline-success mx-2" onClick={handleRegister}>Register
+                    <Link type="submit" to={"/login"} className="btn btn-outline-success mx-2" onClick={handleRegister}>Register
                     </Link>
                     <CancelButton/>
                 </div>
