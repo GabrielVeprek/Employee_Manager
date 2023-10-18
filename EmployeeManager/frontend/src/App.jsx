@@ -8,6 +8,7 @@ import EditEmployee from "./employee/create&edit/EditEmployee.jsx";
 import ViewEmployee from "./employee/view/ViewEmployee.jsx";
 import Statistic from "./pages/statistics/Statistic.jsx";
 import {LoginPage} from "./pages/login/LoginPage.jsx";
+import {Register} from "./pages/register/Register.jsx";
 function App() {
     return (
         <div className="App">
@@ -20,6 +21,7 @@ function App() {
                     <Route exact path="/viewEmployee/:id" element={<ViewEmployee/>}/>
                     <Route exact path="/employeeStatisticsURL" element={<Statistic/>}/>
                     <Route exact path="/login" element={<LoginPage/>}/>
+                    <Route exact path="/register" element={<Register/>}/>
                 </Routes>
             </Router>
         </div>

@@ -1,6 +1,7 @@
 import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
 import {Buffer} from "buffer";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 export function LoginPage() {
 
@@ -66,7 +67,7 @@ export function LoginPage() {
                         </div>
                     </form>
                         <button type="submit" className="btn btn-outline-success mx-2" onClick={handleLogin}>Login</button>
-                        <button type="submit" className="btn btn-outline-primary mx-2">Register</button>
+                        <Link type="submit" to={"/register"} className="btn btn-outline-primary mx-2">Register</Link>
                     <CancelButton/>
                 </div>
             </div>
