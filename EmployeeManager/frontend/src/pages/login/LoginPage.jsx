@@ -1,9 +1,11 @@
 import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
 import {Buffer} from "buffer";
 import {useState} from "react";
-import axios from "axios";
 
 export function LoginPage() {
+
+    const BACKEND_LOGIN = 'http://localhost:8080/login'
+
 
     const [user, setUser] = useState({
         username: "",
@@ -21,15 +23,13 @@ export function LoginPage() {
         const headers = new Headers();
         const auth = Buffer.from(user.username + ':' + user.password).toString('base64');
         headers.set('Authorization', 'Basic ' + auth);
-
-        axios.get('http://localhost:8080/login', { headers })
-            .then(response => {
-                const jwt = response.data;
+        return fetch(BACKEND_LOGIN, {method: 'GET', headers: headers})
+            .then(response => response.text())
+            .then(jwt => {
                 localStorage.setItem('jwt', jwt);
+                console.log(jwt)
             })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+            .catch((error) => console.log("ERROR MESSAGE: " + error));
     }
 
     return (
@@ -65,7 +65,7 @@ export function LoginPage() {
                             />
                         </div>
                     </form>
-                        <button type="submit" className="btn btn-outline-success mx-2" onSubmit={handleLogin}>Login</button>
+                        <button type="submit" className="btn btn-outline-success mx-2" onClick={handleLogin}>Login</button>
                         <button type="submit" className="btn btn-outline-primary mx-2">Register</button>
                     <CancelButton/>
                 </div>
