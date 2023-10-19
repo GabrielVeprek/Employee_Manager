@@ -1,7 +1,7 @@
-import { CancelButton } from "../../buttonComponent/CancelButton.jsx";
-import { Buffer } from "buffer";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
+import {Buffer} from "buffer";
+import {useState} from "react";
+import {Link} from "react-router-dom";
 
 
 export function LoginPage() {
@@ -14,18 +14,18 @@ export function LoginPage() {
     });
 
     function handleUsernameChange(event) {
-        setUser({ ...user, username: event.target.value });
+        setUser({...user, username: event.target.value});
     }
 
     function handlePasswordChange(event) {
-        setUser({ ...user, password: event.target.value });
+        setUser({...user, password: event.target.value});
     }
 
     function handleLogin() {
         const headers = new Headers();
         const auth = Buffer.from(user.username + ':' + user.password).toString('base64');
         headers.set('Authorization', 'Basic ' + auth);
-        return fetch(BACKEND_LOGIN, { method: 'GET', headers: headers })
+        return fetch(BACKEND_LOGIN, {method: 'GET', headers: headers})
             .then(response => response.text())
             .then(jwt => {
                 localStorage.setItem('jwt', jwt);
@@ -33,6 +33,7 @@ export function LoginPage() {
             })
             .catch((error) => console.log("ERROR MESSAGE: " + error));
     }
+
     const fullContent = (
         <div className="container">
             <div className="row text-center">
@@ -72,7 +73,7 @@ export function LoginPage() {
                     <Link type="submit" to={"/register"} className="btn btn-outline-primary mx-2">
                         Register
                     </Link>
-                    <CancelButton />
+                    <CancelButton/>
                 </div>
             </div>
         </div>
@@ -85,7 +86,8 @@ export function LoginPage() {
                     <div className="row text-center">
                         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
                             <h4>Successfully Logged-in</h4>
-                            <Link type="submit" className="btn btn-outline-primary mx-2" to={"/"}/* onClick={handleLogin}*/>Home</Link>
+                            <Link type="submit" className="btn btn-outline-primary mx-2"
+                                  to={"/"}/* onClick={handleLogin}*/>Home</Link>
                         </div>
                     </div>
                 </div>

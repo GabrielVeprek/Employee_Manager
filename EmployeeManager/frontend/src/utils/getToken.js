@@ -1,6 +1,6 @@
 import axios from "axios";
 export function getToken() {
-    return localStorage.getItem('jwt');
+    return  localStorage.getItem('jwt');
 }
 export function createHeader(token) {
     if (token) {
