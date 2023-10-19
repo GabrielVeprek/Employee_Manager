@@ -33,7 +33,7 @@ export function useEditInputField(id) {
     };
     const onCreate = async (event) => {
         event.preventDefault();
-        await postAuthenticatedResult(employeeURL)
+        await postAuthenticatedResult(employeeURL,employee)
         navigate("/");
     };
 
