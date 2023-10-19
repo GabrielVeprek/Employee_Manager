@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {employeeURL} from "../../../URLs/employeeURL.js";
 import {sliceID} from "../../../utils/ids.js"
+import {createHeader, getToken} from "../../../utils/getToken.js";
 
 
 export function TableBody() {
@@ -42,30 +43,36 @@ export function TableBody() {
     const fullContent =
         <>
             <tbody className="font-weight-light fs-5">
-            {employee.map((employee) => (
-                <tr key={employee.id}>
-                    <td className="text-primary">{employee.id.slice(0, 4)}</td>
-                    <td>{employee.firstName}</td>
-                    <td>{employee.lastName}</td>
-                    <td>{employee.mail}</td>
-                    <td>
-                        <Link
-                            className="btn btn-primary mx-2 shadow"
-                            to={`/viewEmployee/${employee.id}`}>
-                            View
-                        </Link>
-                        <Link
-                            className="btn btn-outline-primary mx-2 shadow"
-                            to={`/editEmployee/${employee.id}`}>
-                            Edit
-                        </Link>
-                        <button
-                            className="btn btn-danger mx-2 shadow"
-                            onClick={() => handleDelete(employee.id)}>Delete
-                        </button>
-                    </td>
-                </tr>
-            ))}
+            {employee.map((employee) => {
+                const token = getToken();
+                const header = createHeader(token);
+                return (
+                    <tr key={employee.id}>
+                        <td className="text-primary">{employee.id.slice(0, 4)}</td>
+                        <td>{employee.firstName}</td>
+                        <td>{employee.lastName}</td>
+                        <td>{employee.mail}</td>
+                        <td>
+                            <Link
+                                className="btn btn-primary mx-2 shadow"
+                                to={`/viewEmployee/${employee.id}`}>
+                                View
+                            </Link>
+                            <Link
+                                className="btn btn-outline-primary mx-2 shadow"
+                                to={`/editEmployee/${employee.id}`}>
+                                Edit
+                            </Link>
+                            {header?
+                                <button
+                                className="btn btn-danger mx-2 shadow"
+                                onClick={() => handleDelete(employee.id)}>Delete
+                            </button>:""}
+
+                        </td>
+                    </tr>
+                );
+            })}
             </tbody>
         </>;
 
