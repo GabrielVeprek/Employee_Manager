@@ -67,15 +67,14 @@ export function TableBody() {
             </tbody>
         </>;
 
-
     return (
         <>
             {isConfirmed ? (
                 <div className="container offset-md-4">
                     <div className="row text-center">
-                        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+                        <div className="col-md-7 offset-md-2 border rounded p-4 mt-2 shadow">
                             <h4>Confirm Delete of {employee.map((employee) =>
-                                employee.firstName + " " + employee.lastName)}</h4>
+                                employee.firstName + " " + employee.lastName + ", ID: " + employee.id.slice(0, 4))}</h4>
                             <button
                                 className="btn btn-danger mx-2"
                                 onClick={() => handleDelete(employeeToDelete)}>Confirm Delete
