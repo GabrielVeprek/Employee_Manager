@@ -13,3 +13,9 @@ export async function getAuthenticatedResult(URL) {
     const headers = createHeader(token);
     return await axios.get(URL, {headers});
 }
+
+export async function postAuthenticatedResult(URL) {
+    const token = getToken();
+    const headers = createHeader(token);
+    return await axios.post(URL, {headers});
+}
