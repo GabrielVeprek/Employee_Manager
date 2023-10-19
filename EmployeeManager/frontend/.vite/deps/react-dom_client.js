@@ -871,7 +871,7 @@ var require_react_dom_development = __commonJS({
         [
           "checked",
           // Note: `option.selected` is not updated if `select.multiple` is
-          // disabled with `removeAttribute`. We have special logic for handling this.
+          // disabled with `removeAttribute`. We have special utils for handling this.
           "multiple",
           "muted",
           "selected"
@@ -3873,7 +3873,7 @@ var require_react_dom_development = __commonJS({
         );
         var BeforeMutationMask = (
           // TODO: Remove Update flag from before mutation phase by re-landing Visibility
-          // flag logic (see #20043)
+          // flag utils (see #20043)
           Update | Snapshot | 0
         );
         var MutationMask = Placement | Update | ChildDeletion | ContentReset | Ref | Hydrating | Visibility;
@@ -3931,7 +3931,7 @@ var require_react_dom_development = __commonJS({
               var ownerFiber = owner;
               var instance = ownerFiber.stateNode;
               if (!instance._warnedAboutRefsInRender) {
-                error("%s is accessing isMounted inside its render() function. render() should be a pure function of props and state. It should never access something that requires stale data from the previous render, such as refs. Move this logic to componentDidMount and componentDidUpdate instead.", getComponentNameFromFiber(ownerFiber) || "A component");
+                error("%s is accessing isMounted inside its render() function. render() should be a pure function of props and state. It should never access something that requires stale data from the previous render, such as refs. Move this utils to componentDidMount and componentDidUpdate instead.", getComponentNameFromFiber(ownerFiber) || "A component");
               }
               instance._warnedAboutRefsInRender = true;
             }
@@ -21372,7 +21372,7 @@ var require_react_dom_development = __commonJS({
             if (owner !== null && owner.stateNode !== null) {
               var warnedAboutRefsInRender = owner.stateNode._warnedAboutRefsInRender;
               if (!warnedAboutRefsInRender) {
-                error("%s is accessing findDOMNode inside its render(). render() should be a pure function of props and state. It should never access something that requires stale data from the previous render, such as refs. Move this logic to componentDidMount and componentDidUpdate instead.", getComponentNameFromType(owner.type) || "A component");
+                error("%s is accessing findDOMNode inside its render(). render() should be a pure function of props and state. It should never access something that requires stale data from the previous render, such as refs. Move this utils to componentDidMount and componentDidUpdate instead.", getComponentNameFromType(owner.type) || "A component");
               }
               owner.stateNode._warnedAboutRefsInRender = true;
             }

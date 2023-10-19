@@ -2,6 +2,8 @@ import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {employeeURL} from "../../../URLs/employeeURL.js";
+import {sliceID} from "../../../utils/ids.js"
+
 
 export function TableBody() {
     const [employee, setEmployee] = useState([]);
@@ -74,7 +76,7 @@ export function TableBody() {
                     <div className="row text-center">
                         <div className="col-md-7 offset-md-2 border rounded p-4 mt-2 shadow">
                             <h4>Confirm Delete of {employee.map((employee) =>
-                                employee.firstName + " " + employee.lastName + ", ID: " + employee.id.slice(0, 4))}</h4>
+                                employee.firstName + " " + employee.lastName + ", ID: " + sliceID(employee.id))}</h4>
                             <button
                                 className="btn btn-danger mx-2"
                                 onClick={() => handleDelete(employeeToDelete)}>Confirm Delete

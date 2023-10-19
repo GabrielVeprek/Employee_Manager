@@ -1,17 +1,17 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {sliceID} from "../../logic/ids.js";
+import {sliceID} from "../../utils/ids.js";
 import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
 import {CreateEditMask} from "../../employee/create&edit/Create&EditMask.jsx";
 import {employeeStatisticsURL} from "../../URLs/employeeStatisticsURL.js";
 import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
 import {Avergae} from "./component/Avergae.jsx";
+import {createHeader, getAuthenticatedResult, getToken} from "../../utils/getToken.js";
 
 
 export default function Statistic() {
 
-//splitt the statistic
     const [statistic, setStatistic] = useState({
         junior: "",
         slicedJuniorID: "",
@@ -25,7 +25,7 @@ export default function Statistic() {
     }, []);
 
     const loadStatistics = async () => {
-        const result = await axios.get(employeeStatisticsURL);
+        const result = getAuthenticatedResult(employeeStatisticsURL);
         const data = {
             ...result.data,
             slicedJuniorID: sliceID(result.data.junior.id),
@@ -33,7 +33,8 @@ export default function Statistic() {
             average: sliceID(result.data.average.toString())
         }
         setStatistic(data);
-    };
+    }
+
     return (
         <CreateEditMask>
             <h2 className="text-center m-4 text-primary">Employee Statistics</h2>
@@ -58,5 +59,6 @@ export default function Statistic() {
             </div>
             <HomeButton/>
         </CreateEditMask>
-    );
+    )
 }
+
