@@ -24,6 +24,21 @@ public class Employee {
     private LocalDate entryDate;
 
 
+
+    //position
+    //tätigkeit
+    //gehalt
+    //uralubstage restlich (nächster urlaub)
+    //überstunden
+
+    //oragnigram / führunkskraft
+    // teams (gleicher boss != gleiches team)
+
+    // filter + suchfunktionen
+
+
+
+
     public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate) {
         this.ID = ID;
         this.firstName = firstName;

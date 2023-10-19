@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin("http://localhost:5173/")
 @RequestMapping("employee")
 public class EmployeeController {
     private final EmployeeRepository employeeRepository;

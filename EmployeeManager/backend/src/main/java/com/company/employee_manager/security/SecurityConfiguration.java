@@ -41,7 +41,7 @@ public class SecurityConfiguration {
                     auth.requestMatchers("/employee").permitAll();
                     auth.requestMatchers("/login").permitAll();
                     auth.requestMatchers("/register").permitAll();
-                    auth.anyRequest().permitAll();
+                    auth.anyRequest().hasAnyAuthority("SCOPE_USER");
                 })
                 .oauth2ResourceServer(oath2 -> oath2.jwt(Customizer.withDefaults()))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
