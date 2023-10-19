@@ -3,10 +3,9 @@ export function getToken() {
     return localStorage.getItem('jwt');
 }
 export function createHeader(token) {
-    if (!token) {
-        throw {message: "Invalid Token"}
+    if (token) {
+        return {'Authorization': `Bearer ${token}`};
     }
-    return {'Authorization': `Bearer ${token}`};
 }
 export async function getAuthenticatedResult(URL) {
     const token = getToken();
