@@ -84,7 +84,7 @@ export function LoginPage() {
                     <div className="row text-center">
                         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
                             <h4>Successfully Logged-in</h4>
-                            <Link type="submit" className="btn btn-outline-primary mx-2" to={"/"} onClick={handleLogin}>Home</Link>
+                            <Link type="submit" className="btn btn-outline-primary mx-2" to={"/"}/* onClick={handleLogin}*/>Home</Link>
                         </div>
                     </div>
                 </div>

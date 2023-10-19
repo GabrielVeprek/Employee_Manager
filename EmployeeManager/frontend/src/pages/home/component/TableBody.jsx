@@ -4,8 +4,9 @@ import axios from "axios";
 import {employeeURL} from "../../../URLs/employeeURL.js";
 
 export function TableBody() {
-
     const [employee, setEmployee] = useState([]);
+    const [isConfirmed, setConfirmed] = useState(false);
+    const [employeeToDelete, setEmployeeToDelete] = useState(null);
 
     useEffect(() => {
         loadEmployee();
@@ -19,33 +20,73 @@ export function TableBody() {
     const deleteEmployee = async (id) => {
         await axios.delete(`${employeeURL}/${id}`);
         loadEmployee();
+        setEmployeeToDelete();
+        setConfirmed(false);
     };
 
-    return (<tbody className="font-weight-light fs-5">
-    {employee.map((employee) => (
-        <tr key={employee.id}>
-            <td className="text-primary">{employee.id.slice(0, 4)}</td>
-            <td>{employee.firstName}</td>
-            <td>{employee.lastName}</td>
-            <td>{employee.mail}</td>
-            <td>
-                <Link
-                    className="btn btn-primary mx-2 shadow"
-                    to={`/viewEmployee/${employee.id}`}>
-                    View
-                </Link>
-                <Link
-                    className="btn btn-outline-primary mx-2 shadow"
-                    to={`/editEmployee/${employee.id}`}>
-                    Edit
-                </Link>
-                <button
-                    className="btn btn-danger mx-2 shadow"
-                    onClick={() => deleteEmployee(employee.id)}>
-                    Delete
-                </button>
-            </td>
-        </tr>
-    ))}
-    </tbody>)
+    function handleDelete(employeeId) {
+        isConfirmed ?
+            deleteEmployee(employeeId)
+            :
+            setEmployeeToDelete(employeeId);
+        setConfirmed(true);
+    }
+
+    function handleCancel() {
+        setConfirmed(false)
+    }
+
+
+    const fullContent =
+        <>
+            <tbody className="font-weight-light fs-5">
+            {employee.map((employee) => (
+                <tr key={employee.id}>
+                    <td className="text-primary">{employee.id.slice(0, 4)}</td>
+                    <td>{employee.firstName}</td>
+                    <td>{employee.lastName}</td>
+                    <td>{employee.mail}</td>
+                    <td>
+                        <Link
+                            className="btn btn-primary mx-2 shadow"
+                            to={`/viewEmployee/${employee.id}`}>
+                            View
+                        </Link>
+                        <Link
+                            className="btn btn-outline-primary mx-2 shadow"
+                            to={`/editEmployee/${employee.id}`}>
+                            Edit
+                        </Link>
+                        <button
+                            className="btn btn-danger mx-2 shadow"
+                            onClick={() => handleDelete(employee.id)}>Delete
+                        </button>
+                    </td>
+                </tr>
+            ))}
+            </tbody>
+        </>;
+
+
+    return (
+        <>
+            {isConfirmed ? (
+                <div className="container offset-md-4">
+                    <div className="row text-center">
+                        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+                            <h4>Confirm Delete of {employee.map((employee) =>
+                                employee.firstName + " " + employee.lastName)}</h4>
+                            <button
+                                className="btn btn-danger mx-2"
+                                onClick={() => handleDelete(employeeToDelete)}>Confirm Delete
+                            </button>
+                            <Link className="btn btn-secondary" to={"/"} onClick={handleCancel}>Cancel</Link>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                fullContent
+            )}
+        </>
+    )
 }
