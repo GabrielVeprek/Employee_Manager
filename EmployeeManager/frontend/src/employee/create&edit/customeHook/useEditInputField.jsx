@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {employeeURL} from "../../../URLs/employeeURL.js";
+import {postAuthenticatedResult} from "../../../utils/getToken.js";
 
 export function useEditInputField(id) {
     let navigate = useNavigate();
@@ -32,7 +33,7 @@ export function useEditInputField(id) {
     };
     const onCreate = async (event) => {
         event.preventDefault();
-        await axios.post(employeeURL, employee);
+        await postAuthenticatedResult(employeeURL)
         navigate("/");
     };
 

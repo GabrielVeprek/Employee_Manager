@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {sliceID} from "../../utils/ids.js";
 import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
 import {CreateEditMask} from "../../employee/create&edit/Create&EditMask.jsx";
@@ -7,7 +6,7 @@ import {employeeStatisticsURL} from "../../URLs/employeeStatisticsURL.js";
 import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
 import {Avergae} from "./component/Avergae.jsx";
-import {createHeader, getAuthenticatedResult, getToken} from "../../utils/getToken.js";
+import {getAuthenticatedResult} from "../../utils/getToken.js";
 
 
 export default function Statistic() {
@@ -25,7 +24,7 @@ export default function Statistic() {
     }, []);
 
     const loadStatistics = async () => {
-        const result = getAuthenticatedResult(employeeStatisticsURL);
+        const result = await getAuthenticatedResult(employeeStatisticsURL);
         const data = {
             ...result.data,
             slicedJuniorID: sliceID(result.data.junior.id),
