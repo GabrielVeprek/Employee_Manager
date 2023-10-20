@@ -24,3 +24,9 @@ export async function putAuthenticatedResult(URL,data) {
     const headers = createHeader(token);
     return await axios.put(URL, data, {headers} );
 }
+
+export async function deleteAuthenticatedResult(URL) {
+    const token = getToken();
+    const headers = createHeader(token);
+    return await axios.delete(URL, {headers} );
+}
