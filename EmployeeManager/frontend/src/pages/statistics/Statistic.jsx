@@ -7,12 +7,9 @@ import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
 import {Avergae} from "./component/Avergae.jsx";
 import {getAuthenticatedResult} from "../../utils/getToken.js";
-import {HttpStatusCode} from "axios";
-
+import {error401Handler} from "../../utils/error401Handler.js";
 
 export default function Statistic() {
-
-    const [unauthorized, setUnauthorized] = useState(false)
 
     const [statistic, setStatistic] = useState({
         junior: "",
@@ -26,10 +23,8 @@ export default function Statistic() {
         loadStatistics();
     }, []);
 
+
     const loadStatistics = async () => {
-        if (HttpStatusCode.Unauthorized) {
-            setUnauthorized(true)
-        }
         const result = await getAuthenticatedResult(employeeStatisticsURL);
         const data = {
             ...result.data,
@@ -67,7 +62,7 @@ export default function Statistic() {
 
     return (
         <>
-            {unauthorized ? (
+            {error401Handler() ? (
                 <div className="position-absolute top-50 start-50 translate-middle">
                     <img className="img-fluid mb-2" src="../src/images/error_401.jpg"/>
                 </div>
