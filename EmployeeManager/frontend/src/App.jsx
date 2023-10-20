@@ -9,7 +9,11 @@ import ViewEmployee from "./employee/view/ViewEmployee.jsx";
 import Statistic from "./pages/statistics/Statistic.jsx";
 import {LoginPage} from "./pages/login/LoginPage.jsx";
 import {Register} from "./pages/register/Register.jsx";
+import {useState} from "react";
+
 function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     return (
         <div className="App">
             <Router>
@@ -20,11 +24,15 @@ function App() {
                     <Route exact path="/editEmployee/:id" element={<EditEmployee/>}/>
                     <Route exact path="/viewEmployee/:id" element={<ViewEmployee/>}/>
                     <Route exact path="/employeeStatisticsURL" element={<Statistic/>}/>
-                    <Route exact path="/login" element={<LoginPage/>}/>
-                    <Route exact path="/register" element={<Register/>}/>
+                    <Route
+                        exact
+                        path="/login"
+                        element={<LoginPage setIsLoggedIn={setIsLoggedIn}/>}
+                    /> <Route exact path="/register" element={<Register/>}/>
                 </Routes>
             </Router>
         </div>
     );
 }
+
 export default App;
