@@ -2,14 +2,14 @@ import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {employeeURL} from "../../../URLs/employeeURL.js";
-import {createHeader, deleteAuthenticatedResult, getToken} from "../../../utils/getToken.js";
+import {deleteAuthenticatedResult} from "../../../utils/getToken.js";
 import {ConfirmCancelButton} from "../../../buttonComponent/ConfirmCancelButton.jsx";
 import {ViewButton} from "./ViewButton.jsx";
 import {EditButton} from "./EditButton.jsx";
 import {TableBodyDate} from "./TableBodyDate.jsx";
 
 
-export function TableBody() {
+export function TableBody({isLoggedIn}) {
     const [employee, setEmployee] = useState([]);
     const [isConfirmed, setConfirmed] = useState(false);
     const [employeeToDelete, setEmployeeToDelete] = useState("");
@@ -45,20 +45,19 @@ export function TableBody() {
         <>
             <tbody className="font-weight-light fs-5">
             {employee.map((employee) => {
-                const token = getToken();
-                const jwt = createHeader(token);
                 return (
                     <tr key={employee.id}>
                         <TableBodyDate employee={employee}/>
-                        <td>
-                            <ViewButton employee={employee}/>
-                            <EditButton employee={employee}/>
-                            {jwt ?
+                        {isLoggedIn ?
+                            <td>
+                                <ViewButton employee={employee}/>
+                                <EditButton employee={employee}/>
+
                                 <button
                                     className="btn btn-danger mx-2 shadow"
                                     onClick={() => handleDelete(employee.id)}>Delete
-                                </button> : ""}
-                        </td>
+                                </button>
+                            </td> : ""}
                     </tr>
                 );
             })}
