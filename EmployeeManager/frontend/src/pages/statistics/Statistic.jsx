@@ -7,7 +7,8 @@ import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
 import {Avergae} from "./component/Avergae.jsx";
 import {getAuthenticatedResult} from "../../utils/getToken.js";
-import {error401Handler} from "../../utils/error401Handler.js";
+import {HttpStatusCode} from "axios";
+
 
 export default function Statistic() {
 
@@ -36,7 +37,8 @@ export default function Statistic() {
     }
 
 
-    const fullContent = <CreateEditMask>
+    const fullContent =
+        <CreateEditMask>
         <h2 className="text-center m-4 text-primary">Employee Statistics</h2>
         <div className="card">
             <div className="card-header">
@@ -62,7 +64,7 @@ export default function Statistic() {
 
     return (
         <>
-            {error401Handler() ? (
+            {!HttpStatusCode.Unauthorized ? (
                 <div className="position-absolute top-50 start-50 translate-middle">
                     <img className="img-fluid mb-2" src="../src/images/error_401.jpg"/>
                 </div>
