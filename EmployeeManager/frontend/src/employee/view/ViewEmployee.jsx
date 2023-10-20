@@ -1,10 +1,10 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
 import {CreateEditMask} from "../create&edit/Create&EditMask.jsx";
 import {BodyList} from "./component/BodyList.jsx";
 import {employeeURL} from "../../URLs/employeeURL.js";
+import {getAuthenticatedResult} from "../../utils/getToken.js";
 
 export default function ViewEmployee() {
 
@@ -22,7 +22,7 @@ export default function ViewEmployee() {
     }, []);
 
     const loadEmployee = async () => {
-        const result = await axios.get(`${employeeURL}/${id}`);
+        const result = await getAuthenticatedResult(`${employeeURL}/${id}`);
         setEmployee(result.data);
     };
 
