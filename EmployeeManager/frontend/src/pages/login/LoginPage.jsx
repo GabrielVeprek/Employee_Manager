@@ -4,7 +4,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 
 
-export function LoginPage() {
+export function LoginPage({setIsLoggedIn}) {
     const BACKEND_LOGIN = 'http://localhost:8080/login';
     const [isConfirmed, setConfirmed] = useState(false);
 
@@ -30,6 +30,7 @@ export function LoginPage() {
             .then(jwt => {
                 localStorage.setItem('jwt', jwt);
                 setConfirmed(true);
+                setIsLoggedIn(true)
             })
             .catch((error) => console.log("ERROR MESSAGE: " + error));
     }
