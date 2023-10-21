@@ -29,7 +29,7 @@ export function LoginPage({setIsLoggedIn}) {
             .then(response => {
                 if (response.status !== 401) {
                     setIsLoggedIn(true);
-                    history.back();
+                    history.go(-3)
                 } else {
                     setWrongLogIn(true);
                     throw new Error("message");
@@ -45,20 +45,23 @@ export function LoginPage({setIsLoggedIn}) {
         <div className="container">
             <div className="row text-center">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    {wrongLogIn ? (
+                    {wrongLogIn ?
                         <h2 className="text-center m-3">Login failed</h2>
-                    ) : (
+                        :
                         <h2 className="text-center m-4">Login</h2>
-                    )}
+                    }
 
                     <form>
                         <div className="mb-3">
-                            <label htmlFor="FirstName" className="form-label">
+                            {wrongLogIn ? <label htmlFor="FirstName" className="form-label form text-danger">
+                                wrong Username
+                            </label> :<label htmlFor="FirstName" className="form-label">
                                  Username
-                            </label>
+                            </label> }
+
                             <input
                                 type={"text"}
-                                className="form-control"
+                                className="form-control "
                                 placeholder="User-Name"
                                 name="username"
                                 value={user.username}
@@ -67,7 +70,7 @@ export function LoginPage({setIsLoggedIn}) {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="FirstName" className="form-label">
-                                 Password
+                                Password
                             </label>
                             <input
                                 type={"password"}
@@ -83,7 +86,7 @@ export function LoginPage({setIsLoggedIn}) {
                         type="submit"
                         className="btn btn-outline-success mx-2"
                         onClick={handleLogin}
-                        to={setIsLoggedIn ? "/login" : "/"}
+                        to={"/login"}
                     >
                         Login
                     </Link>
