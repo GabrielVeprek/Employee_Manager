@@ -1,4 +1,4 @@
-export function CreateEditMask({ children }) {
+export function DefaultMask({ children }) {
     return (
         <div className="container">
             <div className="row text-center">

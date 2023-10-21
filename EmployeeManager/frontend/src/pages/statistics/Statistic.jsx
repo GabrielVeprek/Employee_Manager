@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {sliceID} from "../../utils/ids.js";
 import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
-import {CreateEditMask} from "../../employee/create&edit/Create&EditMask.jsx";
+import {DefaultMask} from "../login/component/DefaultMask.jsx";
 import {employeeStatisticsURL} from "../../URLs/employeeStatisticsURL.js";
 import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
@@ -36,7 +36,7 @@ export default function Statistic() {
     }
 
     return (
-        <CreateEditMask>
+        <DefaultMask>
             <h2 className="text-center m-4 text-primary">Employee Statistics</h2>
             <div className="card">
                 <div className="card-header">
@@ -58,6 +58,6 @@ export default function Statistic() {
                 </div>
             </div>
             <HomeButton/>
-        </CreateEditMask>
+        </DefaultMask>
     )
 }

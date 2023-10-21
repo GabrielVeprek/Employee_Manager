@@ -1,11 +1,11 @@
-import {CreateEditMask} from "./Create&EditMask.jsx";
+import {DefaultMask} from "../../pages/login/component/DefaultMask.jsx";
 import {InputField} from "./InputField.jsx";
 
 export default function CreateEmployee() {
     return (
-        <CreateEditMask>
+        <DefaultMask>
             <h2 className="text-center m-4">Create Employee</h2>
             <InputField/>
-        </CreateEditMask>
+        </DefaultMask>
     );
 }

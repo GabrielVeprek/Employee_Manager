@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
-import {CreateEditMask} from "../create&edit/Create&EditMask.jsx";
+import {DefaultMask} from "../../pages/login/component/DefaultMask.jsx";
 import {BodyList} from "./component/BodyList.jsx";
 import {employeeURL} from "../../URLs/employeeURL.js";
 import {getAuthenticatedResult} from "../../utils/getToken.js";
@@ -27,7 +27,7 @@ export default function ViewEmployee() {
     };
 
     return (
-        <CreateEditMask>
+        <DefaultMask>
             <h2 className="text-center m-4">Employee Details</h2>
             <div className="card">
                 <div className="card-header">
@@ -36,6 +36,6 @@ export default function ViewEmployee() {
                 </div>
             </div>
             <HomeButton/>
-        </CreateEditMask>
+        </DefaultMask>
     );
 }
