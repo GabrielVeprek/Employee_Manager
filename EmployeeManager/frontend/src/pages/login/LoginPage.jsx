@@ -2,6 +2,8 @@ import {Buffer} from "buffer";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
+import {ErrorLoginForm} from "./component/ErrorLoginForm.jsx";
+import {LoginForm} from "./component/LoginForm.jsx";
 
 export function LoginPage({setIsLoggedIn}) {
     const BACKEND_LOGIN = 'http://localhost:8080/login';
@@ -45,35 +47,8 @@ export function LoginPage({setIsLoggedIn}) {
         <div className="container">
             <div className="row text-center">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-3 text">Invalid username or password</h2>
-                    <form>
-                        <div className="mb-3">
-                            <label htmlFor="FirstName" className="form-label text-danger">
-                                Username
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control border-danger"
-                                placeholder="User-Name"
-                                name="username"
-                                value={user.username}
-                                onChange={handleUsernameChange}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="FirstName" className="form-label text-danger">
-                                Password
-                            </label>
-                            <input
-                                type={"password"}
-                                className="form-control border-danger"
-                                placeholder="Password"
-                                name="password"
-                                value={user.password}
-                                onChange={handlePasswordChange}
-                            />
-                        </div>
-                    </form>
+                    <ErrorLoginForm user={user} handleUsernameChange={handleUsernameChange}
+                                    handlePasswordChange={handlePasswordChange}/>
                     <Link
                         type="submit"
                         className="btn btn-outline-success mx-2"
@@ -91,42 +66,12 @@ export function LoginPage({setIsLoggedIn}) {
         </div>
 
 
-
-
-
     const loginForm =
         <div className="container">
             <div className="row text-center">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-4">Login</h2>
-                    <form>
-                        <div className="mb-3">
-                            <label htmlFor="FirstName" className="form-label">
-                                Username
-                            </label>
-                            <input
-                                type={"text"}
-                                className="form-control "
-                                placeholder="User-Name"
-                                name="username"
-                                value={user.username}
-                                onChange={handleUsernameChange}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="FirstName" className="form-label">
-                                Password
-                            </label>
-                            <input
-                                type={"password"}
-                                className="form-control"
-                                placeholder="Password"
-                                name="password"
-                                value={user.password}
-                                onChange={handlePasswordChange}
-                            />
-                        </div>
-                    </form>
+                    <LoginForm user={user} handleUsernameChange={handleUsernameChange}
+                               handlePasswordChange={handlePasswordChange}/>
                     <Link
                         type="submit"
                         className="btn btn-outline-success mx-2"
