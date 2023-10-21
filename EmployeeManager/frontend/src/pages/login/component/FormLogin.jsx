@@ -1,4 +1,4 @@
-export function LoginForm({user, handleUsernameChange, handlePasswordChange}) {
+export function FormLogin({user, handleUsernameChange, handlePasswordChange}) {
     return (<>
         <h2 className="text-center m-4">Login</h2>
         <form>
