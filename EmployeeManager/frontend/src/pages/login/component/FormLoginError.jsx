@@ -1,4 +1,4 @@
-export function ErrorLoginForm ({user, handleUsernameChange, handlePasswordChange}) {
+export function FormLoginError ({user, handleUsernameChange, handlePasswordChange}) {
     return (<>
         <h2 className="text-center m-3 text">Invalid username or password</h2>
     <form>
