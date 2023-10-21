@@ -7,7 +7,6 @@ import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
 import {Avergae} from "./component/Avergae.jsx";
 import {getAuthenticatedResult} from "../../utils/getToken.js";
-import {HttpStatusCode} from "axios";
 
 
 export default function Statistic() {
@@ -36,40 +35,29 @@ export default function Statistic() {
         setStatistic(data);
     }
 
-
-    const fullContent =
-        <CreateEditMask>
-        <h2 className="text-center m-4 text-primary">Employee Statistics</h2>
-        <div className="card">
-            <div className="card-header">
-                <ul className="list-group list-group-flush">
-                    <li className="list-group-item">
-                        <JuniorEmployee id={statistic.junior.id} slicedID={statistic.slicedJuniorID}
-                                        firstName={statistic.junior.firstName}
-                                        lastName={statistic.junior.lastName}/>
-                    </li>
-                    <li className="list-group-item">
-                        <SeniorEmployee id={statistic.senior.id} slicedID={statistic.slicedSeniorID}
-                                        firstName={statistic.senior.firstName}
-                                        lastName={statistic.senior.lastName}/>
-                    </li>
-                    <li className="list-group-item">
-                        <Avergae average={statistic.average}/>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <HomeButton/>
-    </CreateEditMask>;
-
     return (
-        <>
-            {!HttpStatusCode.Unauthorized ? (
-                <div className="position-absolute top-50 start-50 translate-middle">
-                    <img className="img-fluid mb-2" src="../src/images/error_401.jpg"/>
+        <CreateEditMask>
+            <h2 className="text-center m-4 text-primary">Employee Statistics</h2>
+            <div className="card">
+                <div className="card-header">
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item">
+                            <JuniorEmployee id={statistic.junior.id} slicedID={statistic.slicedJuniorID}
+                                            firstName={statistic.junior.firstName}
+                                            lastName={statistic.junior.lastName}/>
+                        </li>
+                        <li className="list-group-item">
+                            <SeniorEmployee id={statistic.senior.id} slicedID={statistic.slicedSeniorID}
+                                            firstName={statistic.senior.firstName}
+                                            lastName={statistic.senior.lastName}/>
+                        </li>
+                        <li className="list-group-item">
+                            <Avergae average={statistic.average}/>
+                        </li>
+                    </ul>
                 </div>
-            ) : (fullContent)}
-        </>
+            </div>
+            <HomeButton/>
+        </CreateEditMask>
     )
-
 }

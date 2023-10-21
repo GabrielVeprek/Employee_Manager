@@ -1,12 +1,11 @@
-import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
 import {Buffer} from "buffer";
 import {useState} from "react";
 import {Link} from "react-router-dom";
-
+import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
 
 export function LoginPage({setIsLoggedIn}) {
     const BACKEND_LOGIN = 'http://localhost:8080/login';
-    const [isConfirmed, setConfirmed] = useState(false);
+    const [wrongLogIn, setWrongLogIn] = useState(false);
 
     const [user, setUser] = useState({
         username: "",
@@ -25,25 +24,37 @@ export function LoginPage({setIsLoggedIn}) {
         const headers = new Headers();
         const auth = Buffer.from(user.username + ':' + user.password).toString('base64');
         headers.set('Authorization', 'Basic ' + auth);
-        return fetch(BACKEND_LOGIN, {method: 'GET', headers: headers})
-            .then(response => response.text())
-            .then(jwt => {
-                localStorage.setItem('jwt', jwt);
-                setConfirmed(true);
-                setIsLoggedIn(true)
+
+        fetch(BACKEND_LOGIN, {method: 'GET', headers: headers})
+            .then(response => {
+                if (response.status !== 401) {
+                    setIsLoggedIn(true);
+                    history.back();
+                } else {
+                    setWrongLogIn(true);
+                    throw new Error("message");
+                }
+                return response.text();
             })
-            .catch((error) => console.log("ERROR MESSAGE: " + error));
+            .catch(error => {
+                console.log("ERROR MESSAGE: " + error);
+            });
     }
 
-    const fullContent = (
+    return (
         <div className="container">
             <div className="row text-center">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-4">Login</h2>
+                    {wrongLogIn ? (
+                        <h2 className="text-center m-3">Login failed</h2>
+                    ) : (
+                        <h2 className="text-center m-4">Login</h2>
+                    )}
+
                     <form>
                         <div className="mb-3">
                             <label htmlFor="FirstName" className="form-label">
-                                Username
+                                 Username
                             </label>
                             <input
                                 type={"text"}
@@ -56,7 +67,7 @@ export function LoginPage({setIsLoggedIn}) {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="FirstName" className="form-label">
-                                Password
+                                 Password
                             </label>
                             <input
                                 type={"password"}
@@ -68,33 +79,20 @@ export function LoginPage({setIsLoggedIn}) {
                             />
                         </div>
                     </form>
-                    <button type="submit" className="btn btn-outline-success mx-2" onClick={handleLogin}>
+                    <Link
+                        type="submit"
+                        className="btn btn-outline-success mx-2"
+                        onClick={handleLogin}
+                        to={setIsLoggedIn ? "/login" : "/"}
+                    >
                         Login
-                    </button>
-                    <Link type="submit" to={"/register"} className="btn btn-outline-primary mx-2">
+                    </Link>
+                    <Link to="/register" className="btn btn-outline-primary mx-2">
                         Register
                     </Link>
                     <CancelButton/>
                 </div>
             </div>
         </div>
-    );
-
-    return (
-        <>
-            {isConfirmed ? (
-                <div className="container">
-                    <div className="row text-center">
-                        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                            <h4>Successfully Logged-in</h4>
-                            <Link type="submit" className="btn btn-outline-primary mx-2"
-                                  to={"/"}/* onClick={handleLogin}*/>Home</Link>
-                        </div>
-                    </div>
-                </div>
-            ) : (
-                fullContent
-            )}
-        </>
     );
 }
