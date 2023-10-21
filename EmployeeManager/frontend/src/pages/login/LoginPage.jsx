@@ -1,4 +1,3 @@
-import {Buffer} from "buffer";
 import {useState} from "react";
 import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
 import {FormLoginError} from "./component/FormLoginError.jsx";
@@ -6,6 +5,7 @@ import {FormLogin} from "./component/FormLogin.jsx";
 import {ButtonLogin} from "./component/ButtonLogin.jsx";
 import {ButtonRegister} from "./component/ButtonRegister.jsx";
 import {DefaultMask} from "./component/DefaultMask.jsx";
+import {setTokenToHeader} from "../../utils/sendToken.js";
 
 export function LoginPage({setIsLoggedIn}) {
     const BACKEND_LOGIN = 'http://localhost:8080/login';
@@ -25,9 +25,7 @@ export function LoginPage({setIsLoggedIn}) {
     }
 
     function handleLogin() {
-        const headers = new Headers();
-        const auth = Buffer.from(user.username + ':' + user.password).toString('base64');
-        headers.set('Authorization', 'Basic ' + auth);
+        const headers = setTokenToHeader(user);
 
         fetch(BACKEND_LOGIN, {method: 'GET', headers: headers})
             .then(response => {
