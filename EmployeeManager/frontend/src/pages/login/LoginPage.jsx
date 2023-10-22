@@ -36,7 +36,7 @@ export function LoginPage({setIsLoggedIn}) {
                     setWrongLogIn(true);
                 }
                 return response.text();
-            })
+            }).then(jwt => localStorage.setItem('jwt' ,jwt))
     }
 
     const errorLoginForm =
