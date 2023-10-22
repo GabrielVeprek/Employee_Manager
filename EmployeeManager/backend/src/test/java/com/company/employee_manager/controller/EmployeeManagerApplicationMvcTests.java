@@ -1,6 +1,7 @@
 package com.company.employee_manager.controller;
 
-import com.company.employee_manager.model.Employee;
+import com.company.employee_manager.model.employee.Employee;
+import com.company.employee_manager.model.employee.Position;
 import com.company.employee_manager.repository.EmployeeRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -10,14 +11,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDate;
-import java.util.Optional;
-import java.util.UUID;
 
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(EmployeeController.class)
@@ -51,7 +48,7 @@ public class EmployeeManagerApplicationMvcTests {
                         .content(json))
                 .andExpect(status().isOk());
 
-        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1));
+        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary());
         verify(employeeRepository).save(employee);
     }
     @Test
@@ -64,7 +61,7 @@ public class EmployeeManagerApplicationMvcTests {
                         .content(json))
                 .andExpect(status().isOk());
 
-        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1));
+        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary());
         verify(employeeRepository).save(employee);
     }
 
