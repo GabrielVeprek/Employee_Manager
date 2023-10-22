@@ -1,8 +1,6 @@
-package com.company.employee_manager.model;
+package com.company.employee_manager.model.employee;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -23,28 +21,19 @@ public class Employee {
 
     private LocalDate entryDate;
 
+    private Position position;
 
 
-    //position
-    //tätigkeit
-    //gehalt
-    //uralubstage restlich (nächster urlaub)
-    //überstunden
-
-    //oragnigram / führunkskraft
-    // teams (gleicher boss != gleiches team)
-
-    // filter + suchfunktionen
-
-
-
-
-    public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate) {
+    public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate, Position position, int salary) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
         this.entryDate = entryDate;
+        this.position = position;
+    }
+
+    public Employee() {
     }
 
     public UUID getID() {
@@ -87,20 +76,38 @@ public class Employee {
         this.entryDate = entryDate;
     }
 
-    public Employee() {
-    }
+    public Position getPosition() {return position;}
 
+    public void setPosition(Position position) {this.position = position;}
+
+    public int getSalary() {return getPosition().getSalary();}
+
+    public void setSalary(int salary) {}
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(ID, employee.ID) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(mail, employee.mail) && Objects.equals(entryDate, employee.entryDate);
+        return Objects.equals(ID, employee.ID) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(mail, employee.mail) && Objects.equals(entryDate, employee.entryDate) && Objects.equals(position, employee.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, firstName, lastName, mail, entryDate);
+        return Objects.hash(ID, firstName, lastName, mail, entryDate, position);
     }
 }
+
+
+//tätigkeit
+
+
+//uralubstage restlich (nächster urlaub)
+//überstunden
+
+//oragnigram / führunkskraft
+// teams (gleicher boss != gleiches team)
+
+// filter + suchfunktionen
+
+
