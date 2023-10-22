@@ -6,7 +6,6 @@ import com.company.employee_manager.repository.EmployeeRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.UUID;
 @Configuration
 public class EmployeePopulator {
     @Bean
-    ApplicationRunner populateEmployee(EmployeeRepository employeeRepository, PasswordEncoder passwordEncoder) {            
+    ApplicationRunner populateEmployee(EmployeeRepository employeeRepository) {
         return args -> {
             var employee1 = new Employee(UUID.randomUUID(), "Max", "Mustermann", "max.mustermann@java.com", LocalDate.of(2015, 10, 1), Position.SENIOR, Position.SENIOR.getSalary());
             var employee2 = new Employee(UUID.randomUUID(), "Anna", "Schmidt", "anna.schmidt@python.com", LocalDate.of(2016, 3, 15), Position.SENIOR, Position.SENIOR.getSalary());
