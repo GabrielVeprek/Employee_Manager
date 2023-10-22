@@ -2,6 +2,9 @@ import {FirstName} from "./FirstName.jsx";
 import {LastName} from "./LastName.jsx";
 import {Mail} from "./Mail.jsx";
 import {EntryDate} from "./EntryDate.jsx";
+import {Position} from "./Position.jsx";
+import {Salary} from "./Salary.jsx";
+
 export function BodyList({employee}) {
     return (
         <ul className="list-group list-group-flush">
@@ -9,6 +12,8 @@ export function BodyList({employee}) {
             <LastName lastName={employee.lastName}/>
             <Mail mail={employee.mail}/>
             <EntryDate entryDate={employee.entryDate}/>
+            <Position position={employee.position}/>
+            <Salary salary={employee.salary}/>
         </ul>
     )
 }
