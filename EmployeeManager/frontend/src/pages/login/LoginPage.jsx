@@ -31,7 +31,7 @@ export function LoginPage({setIsLoggedIn}) {
             .then(response => {
                 if (response.status !== 401) {
                     setIsLoggedIn(true);
-                    history.go(-3)
+                    window.location.href = "http://localhost:5173"
                 } else {
                     setWrongLogIn(true);
                 }
