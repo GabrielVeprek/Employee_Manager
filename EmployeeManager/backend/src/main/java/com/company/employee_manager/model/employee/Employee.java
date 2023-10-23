@@ -103,6 +103,10 @@ public class Employee {
 
     public void setHoliday(Holiday holiday) {this.holiday = holiday;}
 
+    public String getTask() {return task;}
+
+    public void setTask(String task) {this.task = task;}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
