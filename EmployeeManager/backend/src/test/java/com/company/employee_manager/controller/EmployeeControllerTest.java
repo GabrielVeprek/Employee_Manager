@@ -26,9 +26,13 @@ class EmployeeControllerTest {
 
     @Test
     void saveEmployee() {
-        var employee = new Employee(null,"Tom", "Bond", "mail", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary(),20,new Holiday(12,LocalDate.of(2024,1,1)));
+        var employee = new Employee(null, "Tom", "Bond", "mail", LocalDate.of(2000, 1, 1),
+                Position.SENIOR, Position.SENIOR.getSalary(), 20,
+                new Holiday(12, LocalDate.of(2024, 1, 1)), "nix");
         when(employeeController.saveEmployee(employee)).thenReturn(
-                new Employee(null,"Tom", "Bond", "mail", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary(),20,new Holiday(12,LocalDate.of(2024,1,1))));
+                new Employee(null, "Tom", "Bond", "mail", LocalDate.of(2000, 1, 1),
+                        Position.SENIOR, Position.SENIOR.getSalary(), 20,
+                        new Holiday(12, LocalDate.of(2024, 1, 1)), "nix"));
 
         var result = employeeController.saveEmployee(employee);
 

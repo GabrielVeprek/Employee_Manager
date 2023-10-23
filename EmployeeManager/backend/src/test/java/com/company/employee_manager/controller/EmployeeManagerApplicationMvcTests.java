@@ -49,9 +49,12 @@ public class EmployeeManagerApplicationMvcTests {
                         .content(json))
                 .andExpect(status().isOk());
 
-        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary(),20,new Holiday(12,LocalDate.of(2024,1,1)));
+        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1),
+                Position.SENIOR, Position.SENIOR.getSalary(), 20,
+                new Holiday(12, LocalDate.of(2024, 1, 1)), "nix");
         verify(employeeRepository).save(employee);
     }
+
     @Test
     void add2() throws Exception {
         var json = """
@@ -62,7 +65,9 @@ public class EmployeeManagerApplicationMvcTests {
                         .content(json))
                 .andExpect(status().isOk());
 
-        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary(),20,new Holiday(12,LocalDate.of(2024,1,1)));
+        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1),
+                Position.SENIOR, Position.SENIOR.getSalary(), 20,
+                new Holiday(12, LocalDate.of(2024, 1, 1)), "nix");
         verify(employeeRepository).save(employee);
     }
 

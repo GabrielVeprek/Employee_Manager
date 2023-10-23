@@ -28,8 +28,10 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     private Holiday holiday;
 
+    private String task;
 
-    public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate, Position position, int salary, double overtimeHour, Holiday holiday) {
+
+    public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate, Position position, int salary, double overtimeHour, Holiday holiday,String task) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,6 +40,7 @@ public class Employee {
         this.position = position;
         this.overtimeHour = overtimeHour;
         this.holiday = holiday;
+        this.task = task;
     }
 
     public Employee() {
