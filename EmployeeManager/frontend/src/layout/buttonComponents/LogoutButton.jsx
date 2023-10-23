@@ -7,7 +7,7 @@ export function LogoutButton({isLoggedIn}) {
     }
     return (
         <Link
-            className="btn btn-outline-light border-light shadow mx-2"
+            className="btn btn-outline-light border-light bg-secondary shadow"
             to="/"
             type="submit"
             onClick={handleLogout}
