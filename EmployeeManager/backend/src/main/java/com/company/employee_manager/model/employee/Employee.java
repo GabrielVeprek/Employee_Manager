@@ -2,6 +2,7 @@ package com.company.employee_manager.model.employee;
 
 import jakarta.persistence.*;
 
+
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
@@ -23,14 +24,20 @@ public class Employee {
 
     private Position position;
 
+    private double overtimeHour;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Holiday holiday;
 
-    public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate, Position position, int salary) {
+
+    public Employee(UUID ID, String firstName, String lastName, String mail, LocalDate entryDate, Position position, int salary, double overtimeHour, Holiday holiday) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
         this.entryDate = entryDate;
         this.position = position;
+        this.overtimeHour = overtimeHour;
+        this.holiday = holiday;
     }
 
     public Employee() {
@@ -84,26 +91,32 @@ public class Employee {
 
     public void setSalary(int salary) {}
 
+    public double getOvertimeHour() {return overtimeHour;}
+
+    public void setOvertimeHour(double overtimeHour) {this.overtimeHour = overtimeHour;}
+
+
+    public Holiday getHoliday() {return holiday;}
+
+    public void setHoliday(Holiday holiday) {this.holiday = holiday;}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(ID, employee.ID) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(mail, employee.mail) && Objects.equals(entryDate, employee.entryDate) && Objects.equals(position, employee.position);
+        return Double.compare(overtimeHour, employee.overtimeHour) == 0 && Objects.equals(ID, employee.ID) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(mail, employee.mail) && Objects.equals(entryDate, employee.entryDate) && position == employee.position && Objects.equals(holiday, employee.holiday);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, firstName, lastName, mail, entryDate, position);
+        return Objects.hash(ID, firstName, lastName, mail, entryDate, position, overtimeHour, holiday);
     }
 }
 
 
 //tätigkeit
 
-
-//uralubstage restlich (nächster urlaub)
-//überstunden
 
 //oragnigram / führunkskraft
 // teams (gleicher boss != gleiches team)

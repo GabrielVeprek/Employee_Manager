@@ -1,6 +1,7 @@
 package com.company.employee_manager.controller;
 
 import com.company.employee_manager.model.employee.Employee;
+import com.company.employee_manager.model.employee.Holiday;
 import com.company.employee_manager.model.employee.Position;
 import com.company.employee_manager.repository.EmployeeRepository;
 import org.junit.jupiter.api.Test;
@@ -25,9 +26,9 @@ class EmployeeControllerTest {
 
     @Test
     void saveEmployee() {
-        var employee = new Employee(null,"Tom", "Bond", "mail", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary());
+        var employee = new Employee(null,"Tom", "Bond", "mail", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary(),20,new Holiday(12,LocalDate.of(2024,1,1)));
         when(employeeController.saveEmployee(employee)).thenReturn(
-                new Employee(null,"Tom", "Bond", "mail", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary()));
+                new Employee(null,"Tom", "Bond", "mail", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary(),20,new Holiday(12,LocalDate.of(2024,1,1))));
 
         var result = employeeController.saveEmployee(employee);
 

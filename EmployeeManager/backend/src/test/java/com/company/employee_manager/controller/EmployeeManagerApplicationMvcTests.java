@@ -1,6 +1,7 @@
 package com.company.employee_manager.controller;
 
 import com.company.employee_manager.model.employee.Employee;
+import com.company.employee_manager.model.employee.Holiday;
 import com.company.employee_manager.model.employee.Position;
 import com.company.employee_manager.repository.EmployeeRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,7 +49,7 @@ public class EmployeeManagerApplicationMvcTests {
                         .content(json))
                 .andExpect(status().isOk());
 
-        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary());
+        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary(),20,new Holiday(12,LocalDate.of(2024,1,1)));
         verify(employeeRepository).save(employee);
     }
     @Test
@@ -61,7 +62,7 @@ public class EmployeeManagerApplicationMvcTests {
                         .content(json))
                 .andExpect(status().isOk());
 
-        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary());
+        var employee = new Employee(null, "a", "a", "a", LocalDate.of(2000, 1, 1), Position.SENIOR, Position.SENIOR.getSalary(),20,new Holiday(12,LocalDate.of(2024,1,1)));
         verify(employeeRepository).save(employee);
     }
 
