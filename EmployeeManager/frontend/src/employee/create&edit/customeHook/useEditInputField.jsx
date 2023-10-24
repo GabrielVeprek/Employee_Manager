@@ -10,6 +10,9 @@ export function useEditInputField(id) {
         lastName: "",
         mail: "",
         entryDate: "",
+        position: "",
+        salary: 0,
+        holidays : { amount :"", nextHoliday: ""},
     });
 
     useEffect(() => {
