@@ -36,25 +36,10 @@ export default function ViewEmployee() {
 
     return (
         <DefaultMask>
-            <h2 className="text-center my-4">Employee Details</h2>
-            <div className="card">
-                <div className="card-header">
-                    Employee - {employee.id}
-                    <EmployeePersonalInfos employee={employee}/>
-                </div>
-            </div>
-            <div className="card my-5">
-                <div className="card-header text-primary">
-                    Personal Statistics
-                    <EmployeeStatisticInfo employee={employee}/>
-                </div>
-            </div>
-            <div className="card my-3">
-                <div className="card-header text-primary">
-                    Holiday Infos
-                    <EmployeeHolidayInfo employee={employee}/>
-                </div>
-            </div>
+            <h2 className="text-center my-2">Employee Details</h2>
+            <EmployeePersonalInfos employee={employee}/>
+            <EmployeeStatisticInfo employee={employee}/>
+            <EmployeeHolidayInfo employee={employee}/>
             <HomeButton/>
         </DefaultMask>
     );
