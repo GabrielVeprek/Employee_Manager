@@ -31,7 +31,6 @@ export default function ViewEmployee() {
     const loadEmployee = async () => {
         const result = await getAuthenticatedResult(`${employeeURL}/${id}`)
         setEmployee(result.data)
-        console.log(result.data)
     }
 
     return (

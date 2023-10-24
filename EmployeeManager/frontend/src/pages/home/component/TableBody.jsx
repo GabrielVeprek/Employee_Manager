@@ -31,9 +31,7 @@ export function TableBody({isLoggedIn}) {
     };
 
     function handleDelete(employeeId) {
-        console.log(employeeId + " : employeeID")
         setEmployeeToDelete(employeeId)
-        console.log(employeeId)
         setConfirmed(true);
     }
 
