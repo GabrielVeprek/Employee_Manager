@@ -31,15 +31,15 @@ export default function Navbar({isLoggedIn}) {
                                             More
                                         </a>
                                         <div className="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
-                                            <li className="li my-1 mx-4">
+                                            <ol className="li my-1 mx-4">
                                                 <StatisticButton/>
-                                            </li>
-                                            <li className="li my-2 mx-1">
+                                            </ol>
+                                            <ol className="li my-2 mx-1">
                                                 <CreateEmployeeButton/>
-                                            </li>
-                                            <li className="li my-1 mx-4">
+                                            </ol>
+                                            <ol className="li my-1 mx-4">
                                                 <LogoutButton isLoggedIn={isLoggedIn}/>
-                                            </li>
+                                            </ol>
                                         </div>
                                     </li>
                                     :
