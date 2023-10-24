@@ -4,16 +4,19 @@ import {Mail} from "./Mail.jsx";
 import {EntryDate} from "./EntryDate.jsx";
 import {Position} from "./Position.jsx";
 import {Salary} from "./Salary.jsx";
+import {HolidayAmount} from "./HolidayAmount.jsx";
+import {HolidayNext} from "./HolidayNext.jsx";
+import {Task} from "./Task.jsx";
+import {Overtime} from "./Overtime.jsx";
 
-export function BodyList({employee}) {
+export function EmployeePersonalInfos({employee}) {
+
+
     return (
         <ul className="list-group list-group-flush">
             <FirstName firstName={employee.firstName}/>
             <LastName lastName={employee.lastName}/>
             <Mail mail={employee.mail}/>
-            <EntryDate entryDate={employee.entryDate}/>
-            <Position position={employee.position}/>
-            <Salary salary={employee.salary}/>
         </ul>
     )
 }
