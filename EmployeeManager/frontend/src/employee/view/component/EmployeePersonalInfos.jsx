@@ -1,13 +1,6 @@
 import {FirstName} from "./FirstName.jsx";
 import {LastName} from "./LastName.jsx";
 import {Mail} from "./Mail.jsx";
-import {EntryDate} from "./EntryDate.jsx";
-import {Position} from "./Position.jsx";
-import {Salary} from "./Salary.jsx";
-import {HolidayAmount} from "./HolidayAmount.jsx";
-import {HolidayNext} from "./HolidayNext.jsx";
-import {Task} from "./Task.jsx";
-import {Overtime} from "./Overtime.jsx";
 
 export function EmployeePersonalInfos({employee}) {
 
