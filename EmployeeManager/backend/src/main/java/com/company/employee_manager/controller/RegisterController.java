@@ -30,7 +30,7 @@ public class RegisterController {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        user.setAuthorities(new HashSet<>(Arrays.asList("ROLE_USER")));
+        user.setAuthorities(new HashSet<>(Arrays.asList("USER")));
 
         userRepository.save(user);
 
