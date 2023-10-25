@@ -4,8 +4,25 @@ import {HomePageImage} from "./buttonComponents/HomePageImage.jsx";
 import {HomePageTitle} from "./buttonComponents/HomePageTitle.jsx";
 import {LogoutButton} from "./buttonComponents/LogoutButton.jsx";
 import {LoginButton} from "./buttonComponents/LoginButton.jsx";
+import axios from "axios";
+import {useContext, useState} from "react";
+import {appContext} from "../App.jsx";
 
 export default function Navbar({isLoggedIn}) {
+    const [inputValue, setInputValue] = useState()
+    const [, setAppState] = useContext(appContext)
+
+    const onInputChange = (event) => {
+        setInputValue(event.target.value)
+    }
+
+    async function handleSearch() {
+        const response = await axios.get(`http://localhost:8080/employee/search/${inputValue}`)
+        setAppState((currenState) => ({
+            ...currenState, searchResult: response.data
+        }))
+    }
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -51,14 +68,21 @@ export default function Navbar({isLoggedIn}) {
                         </div>
                     </div>
                     <div className="d-flex align-items-center ml-auto">
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search"
-                                   aria-label="Search"></input>
-                            <button className="btn btn-outline-light" type="submit">Search</button>
+                        <form className="d-flex" role="search" onSubmit={event => event.preventDefault()}>
+                            <input className="form-control me-2"
+                                   aria-label="Search"
+                                   type="text"
+                                   placeholder="Search"
+                                   name="inputValue"
+                                   value={inputValue ?? ""}
+                                   onChange={onInputChange}
+                            ></input>
+                            <button className="btn btn-outline-light" type="submit" onClick={handleSearch}>Search
+                            </button>
                         </form>
                     </div>
                 </div>
             </nav>
         </div>
-    );
+    )
 }
