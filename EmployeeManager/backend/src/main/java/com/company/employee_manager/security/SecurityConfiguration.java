@@ -1,6 +1,5 @@
 package com.company.employee_manager.security;
 
-
 import com.company.employee_manager.repository.UserRepository;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
@@ -40,6 +39,7 @@ public class SecurityConfiguration {
         return http
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers(HttpMethod.GET,"/employee").permitAll();
+                    auth.requestMatchers(HttpMethod.GET, "/employee/search/*").permitAll();
                     auth.requestMatchers("/login").permitAll();
                     auth.requestMatchers("/register").permitAll();
                     auth.anyRequest().hasAuthority("SCOPE_USER");
