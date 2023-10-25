@@ -28,6 +28,12 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
+    @GetMapping("/search/{input}")
+    List<Employee> searchEmployeeByInput(@PathVariable String input) {
+        return employeeRepository.searchByInput(input);
+    }
+
+
     @GetMapping("/{ID}")
     Employee findByID(@PathVariable UUID ID) throws EmployeeNotFoundException {
         return employeeRepository.findById(ID)
