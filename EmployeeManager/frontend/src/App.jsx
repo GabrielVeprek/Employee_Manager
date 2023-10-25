@@ -9,11 +9,15 @@ import ViewEmployee from "./employee/view/ViewEmployee.jsx";
 import Statistic from "./pages/statistics/Statistic.jsx";
 import {LoginPage} from "./pages/login/LoginPage.jsx";
 import {Register} from "./pages/register/Register.jsx";
-import {useEffect, useState} from "react";
+import {createContext, useEffect, useState} from "react";
 import {getToken} from "./utils/getToken.js";
+
+export const appContext = createContext(null);
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [appState, setAppState] = useState({searchResult: []})
+    console.log(appState)
 
     function isTokenInStorage() {
         return getToken() !== null;
@@ -21,23 +25,27 @@ function App() {
 
     useEffect(() => {
         setIsLoggedIn(isTokenInStorage())
-    }, []);
+    }, [])
 
     return (
-        <div className="App">
-            <Router>
-                <Navbar isLoggedIn={isLoggedIn}/>
-                <Routes>
-                    <Route exact path="/" element={<Home isLoggedIn={isLoggedIn}/>}/>
-                    <Route exact path="/createEmployee" element={<CreateEmployee/>}/>
-                    <Route exact path="/editEmployee/:id" element={<EditEmployee/>}/>
-                    <Route exact path="/viewEmployee/:id" element={<ViewEmployee/>}/>
-                    <Route exact path="/employeeStatisticsURL" element={<Statistic/>}/>
-                    <Route exact path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}/>}/>
-                    <Route exact path="/register" element={<Register/>}/>
-                </Routes>
-            </Router>
-        </div>
+        <appContext.Provider value={[appState, setAppState]}>
+            <div className="App">
+
+                <Router>
+                    <Navbar isLoggedIn={isLoggedIn}/>
+                    <Routes>
+                        <Route exact path="/" element={<Home isLoggedIn={isLoggedIn}/>}/>
+                        <Route exact path="/createEmployee" element={<CreateEmployee/>}/>
+                        <Route exact path="/editEmployee/:id" element={<EditEmployee/>}/>
+                        <Route exact path="/viewEmployee/:id" element={<ViewEmployee/>}/>
+                        <Route exact path="/employeeStatisticsURL" element={<Statistic/>}/>
+                        <Route exact path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}/>}/>
+                        <Route exact path="/register" element={<Register/>}/>
+                    </Routes>
+                </Router>
+
+            </div>
+        </appContext.Provider>
     );
 }
 
