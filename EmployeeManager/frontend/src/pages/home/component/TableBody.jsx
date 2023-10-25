@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {employeeURL} from "../../../URLs/employeeURL.js";
 import {deleteAuthenticatedResult} from "../../../utils/getToken.js";
@@ -7,32 +7,36 @@ import {ConfirmCancelButton} from "../../../buttonComponent/ConfirmCancelButton.
 import {ViewButton} from "./ViewButton.jsx";
 import {EditButton} from "./EditButton.jsx";
 import {TableBodyDate} from "./TableBodyDate.jsx";
+import {appContext} from "../../../App.jsx";
 
 
 export function TableBody({isLoggedIn}) {
-    const [employee, setEmployee] = useState([]);
-    const [isConfirmed, setConfirmed] = useState(false);
-    const [employeeToDelete, setEmployeeToDelete] = useState("");
+    const [employee, setEmployee] = useState([])
+    const [isConfirmed, setConfirmed] = useState(false)
+    const [employeeToDelete, setEmployeeToDelete] = useState("")
+    const [{searchResult}] = useContext(appContext)
+    const display = searchResult.length === 0 ? employee : searchResult
 
     useEffect(() => {
-        loadEmployee();
-    }, []);
+        loadEmployee()
+    }, [])
 
     const loadEmployee = async () => {
-        const result = await axios.get(employeeURL);
-        setEmployee(result.data);
-    };
+        const result = await axios.get(employeeURL)
+        setEmployee(result.data)
+    }
+
 
     const deleteEmployee = async () => {
         await deleteAuthenticatedResult(`${employeeURL}/${employeeToDelete}`)
-        await loadEmployee();
-        setEmployeeToDelete();
-        setConfirmed(false);
-    };
+        await loadEmployee()
+        setEmployeeToDelete()
+        setConfirmed(false)
+    }
 
     function handleDelete(employeeId) {
         setEmployeeToDelete(employeeId)
-        setConfirmed(true);
+        setConfirmed(true)
     }
 
     function handleCancel() {
@@ -42,7 +46,7 @@ export function TableBody({isLoggedIn}) {
     const fullContent =
         <>
             <tbody className="font-weight-light fs-5">
-            {employee.map((employee) => {
+            {display.map((employee) => {
                 return (
                     <tr key={employee.id}>
                         <TableBodyDate employee={employee}/>
