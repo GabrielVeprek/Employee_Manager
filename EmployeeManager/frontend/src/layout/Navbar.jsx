@@ -63,7 +63,6 @@ export default function Navbar({isLoggedIn}) {
                                             </div>
                                         </div>
                                     </li>
-
                                     :
                                     <li>
                                         <LoginButton/>
