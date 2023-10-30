@@ -1,28 +1,10 @@
-import {StatisticButton} from "./buttonComponents/StatisticButton.jsx";
-import {CreateEmployeeButton} from "./buttonComponents/CreateEmployeeButton.jsx";
-import {HomePageImage} from "./buttonComponents/HomePageImage.jsx";
-import {HomePageTitle} from "./buttonComponents/HomePageTitle.jsx";
-import {LogoutButton} from "./buttonComponents/LogoutButton.jsx";
-import {LoginButton} from "./buttonComponents/LoginButton.jsx";
-import axios from "axios";
-import {useContext, useState} from "react";
-import {appContext} from "../App.jsx";
+import {HomePageImage} from "./components/HomePageImage.jsx";
+import {HomePageTitle} from "./components/HomePageTitle.jsx";
+import {ButtonLogin} from "./components/ButtonLogin.jsx";
+import {SearchBar} from "./components/SearchBar.jsx";
+import {ButtonDropdown} from "./components/ButtonDropdown.jsx";
 
 export default function Navbar({isLoggedIn}) {
-    const [inputValue, setInputValue] = useState()
-    const [, setAppState] = useContext(appContext)
-
-    const onInputChange = (event) => {
-        setInputValue(event.target.value)
-    }
-
-    async function handleSearch() {
-        const response = await axios.get(`http://localhost:8080/employee/search/${inputValue}`)
-        setAppState((currenState) => ({
-            ...currenState, searchResult: response.data
-        }))
-    }
-
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -32,59 +14,17 @@ export default function Navbar({isLoggedIn}) {
                 </div>
                 <div className="container offset-md-4">
                     <div className="d-flex align-items-center">
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
                                 {isLoggedIn ?
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle btn bg-primary text-light"
-                                           id="navbarDropdown"
-                                           role="button"
-                                           data-bs-toggle="dropdown"
-                                           aria-haspopup="true"
-                                           aria-expanded="false">
-                                            More
-                                        </a>
-                                        <div className="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
-                                            <div className="container modal-dialog-centered">
-                                                <ol className="li my-1">
-                                                    <StatisticButton/>
-                                                </ol>
-                                                <ol className="li my-1 ">
-                                                    <CreateEmployeeButton/>
-                                                </ol>
-                                                <ol className="li my-1">
-                                                    <LogoutButton isLoggedIn={isLoggedIn}/>
-                                                </ol>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <ButtonDropdown isLoggedIn={isLoggedIn}/>
                                     :
-                                    <li>
-                                        <LoginButton/>
-                                    </li>
+                                    <ButtonLogin/>
                                 }
                             </ul>
                         </div>
                     </div>
-                    <div className="d-flex align-items-center ml-auto">
-                        <form className="d-flex" role="search" onSubmit={event => event.preventDefault()}>
-                            <input className="form-control me-2"
-                                   aria-label="Search"
-                                   type="text"
-                                   placeholder="Search"
-                                   name="inputValue"
-                                   value={inputValue ?? ""}
-                                   onChange={onInputChange}
-                            ></input>
-                            <button className="btn btn-outline-light" type="submit" onClick={handleSearch}>Search
-                            </button>
-                        </form>
-                    </div>
+                    <SearchBar/>
                 </div>
             </nav>
         </div>
