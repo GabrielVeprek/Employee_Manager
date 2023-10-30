@@ -9,6 +9,7 @@ import {ButtonDelete} from "./ButtonDelete.jsx";
 
 
 export function TableBody({isLoggedIn}) {
+
     const [employee, setEmployee] = useState([])
     const [{searchResult}] = useContext(appContext)
     const display = searchResult.length === 0 ? employee : searchResult
@@ -30,9 +31,9 @@ export function TableBody({isLoggedIn}) {
                     <TableBodyDate employee={employee}/>
                     {isLoggedIn ?
                         <td>
-                            <ButtonView employee={employee}/>
-                            <ButtonEdit employee={employee}/>
-                            <ButtonDelete id={employee.id}/>
+                            <ButtonView employeeID={employee.id}/>
+                            <ButtonEdit employeeID={employee.id}/>
+                            <ButtonDelete employeeID={employee.id}/>
                         </td> : ""}
                 </tr>
             )
