@@ -1,17 +1,17 @@
 import {Link} from "react-router-dom";
 
-export function SeniorEmployee({id, slicedID, firstName, lastName}) {
+export function SeniorEmployee({senior, slicedID}) {
     return (
         <>
             <b>Senior Employee : </b>
-            <Link to={`/viewEmployee/${id}`}>
+            <Link to={`/viewEmployee/${senior.id}`}>
                 {"ID  " +
                     slicedID}
             </Link>
             {", " +
-                firstName +
+                senior.firstName +
                 " " +
-                lastName}
+                senior.lastName}
         </>
     )
 }

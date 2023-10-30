@@ -1,17 +1,17 @@
 import {Link} from "react-router-dom";
 
-export function JuniorEmployee({id, slicedID, firstName, lastName}) {
+export function JuniorEmployee({junior, slicedID}) {
     return (
         <>
             <b>Junior Employee : </b>
-            <Link to={`/viewEmployee/${id}`}>
+            <Link to={`/viewEmployee/${junior.id}`}>
                 {"ID  " +
                     slicedID}
             </Link>
             {", " +
-                firstName +
+                junior.firstName +
                 " " +
-                lastName}
+                junior.lastName}
         </>
     )
 }
