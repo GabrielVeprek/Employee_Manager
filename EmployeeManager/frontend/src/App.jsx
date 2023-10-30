@@ -11,13 +11,13 @@ import {LoginPage} from "./pages/login/LoginPage.jsx";
 import {Register} from "./pages/register/Register.jsx";
 import {createContext, useEffect, useState} from "react";
 import {getToken} from "./utils/getToken.js";
+import {DeletePage} from "./pages/delete/DeletePage.jsx";
 
 export const appContext = createContext(null);
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [appState, setAppState] = useState({searchResult: []})
-    console.log(appState)
 
     function isTokenInStorage() {
         return getToken() !== null;
@@ -30,11 +30,11 @@ function App() {
     return (
         <appContext.Provider value={[appState, setAppState]}>
             <div className="App">
-
                 <Router>
                     <Navbar isLoggedIn={isLoggedIn}/>
                     <Routes>
                         <Route exact path="/" element={<Home isLoggedIn={isLoggedIn}/>}/>
+                        <Route exact path="/confirmDelete/:id" element={<DeletePage/>}/>
                         <Route exact path="/createEmployee" element={<CreateEmployee/>}/>
                         <Route exact path="/editEmployee/:id" element={<EditEmployee/>}/>
                         <Route exact path="/viewEmployee/:id" element={<ViewEmployee/>}/>
@@ -43,7 +43,6 @@ function App() {
                         <Route exact path="/register" element={<Register/>}/>
                     </Routes>
                 </Router>
-
             </div>
         </appContext.Provider>
     );
