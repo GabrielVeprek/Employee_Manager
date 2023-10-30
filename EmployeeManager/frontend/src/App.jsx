@@ -38,7 +38,7 @@ function App() {
                         <Route exact path="/createEmployee" element={<CreateEmployee/>}/>
                         <Route exact path="/editEmployee/:id" element={<EditEmployee/>}/>
                         <Route exact path="/viewEmployee/:id" element={<ViewEmployee/>}/>
-                        <Route exact path="/employeeStatisticsURL" element={<Statistic/>}/>
+                        <Route exact path="/employeeURLs" element={<Statistic/>}/>
                         <Route exact path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}/>}/>
                         <Route exact path="/register" element={<Register/>}/>
                     </Routes>

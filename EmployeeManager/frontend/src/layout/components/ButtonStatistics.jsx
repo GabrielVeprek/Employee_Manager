@@ -4,7 +4,7 @@ export function ButtonStatistics(){
     return(
         <Link
             className="btn btn-outline-light border-light  bg-primary shadow"
-            to="/employeeStatisticsURL"
+            to="/employeeURLs"
             type="submit">
             Statistics
         </Link>
