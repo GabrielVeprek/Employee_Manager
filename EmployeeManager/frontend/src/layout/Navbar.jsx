@@ -41,24 +41,29 @@ export default function Navbar({isLoggedIn}) {
                             <ul className="navbar-nav">
                                 {isLoggedIn ?
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle text-dark text-bg-light btn btn-outline-danger"
+                                        <a className="nav-link dropdown-toggle btn bg-primary text-light"
                                            id="navbarDropdown"
-                                           role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-haspopup="true"
                                            aria-expanded="false">
                                             More
                                         </a>
                                         <div className="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
-                                            <ol className="li my-1 mx-4">
-                                                <StatisticButton/>
-                                            </ol>
-                                            <ol className="li my-2 mx-1">
-                                                <CreateEmployeeButton/>
-                                            </ol>
-                                            <ol className="li my-1 mx-4">
-                                                <LogoutButton isLoggedIn={isLoggedIn}/>
-                                            </ol>
+                                            <div className="container modal-dialog-centered">
+                                                <ol className="li my-1">
+                                                    <StatisticButton/>
+                                                </ol>
+                                                <ol className="li my-1 ">
+                                                    <CreateEmployeeButton/>
+                                                </ol>
+                                                <ol className="li my-1">
+                                                    <LogoutButton isLoggedIn={isLoggedIn}/>
+                                                </ol>
+                                            </div>
                                         </div>
                                     </li>
+
                                     :
                                     <li>
                                         <LoginButton/>
