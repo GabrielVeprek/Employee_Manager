@@ -1,11 +1,11 @@
 import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {employeeURL} from "../../../URLs/employeeURL.js";
-import {ViewButton} from "./ViewButton.jsx";
-import {EditButton} from "./EditButton.jsx";
+import {ButtonView} from "./ButtonView.jsx";
+import {ButtonEdit} from "./ButtonEdit.jsx";
 import {TableBodyDate} from "./TableBodyDate.jsx";
 import {appContext} from "../../../App.jsx";
-import {DeleteButton} from "./DeleteButton.jsx";
+import {ButtonDelete} from "./ButtonDelete.jsx";
 
 
 export function TableBody({isLoggedIn}) {
@@ -30,9 +30,9 @@ export function TableBody({isLoggedIn}) {
                     <TableBodyDate employee={employee}/>
                     {isLoggedIn ?
                         <td>
-                            <ViewButton employee={employee}/>
-                            <EditButton employee={employee}/>
-                            <DeleteButton id={employee.id}/>
+                            <ButtonView employee={employee}/>
+                            <ButtonEdit employee={employee}/>
+                            <ButtonDelete id={employee.id}/>
                         </td> : ""}
                 </tr>
             )
