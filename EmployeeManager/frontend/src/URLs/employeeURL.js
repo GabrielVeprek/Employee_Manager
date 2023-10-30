@@ -1,1 +1,0 @@
-export const employeeURL = 'http://localhost:8080/employee';
