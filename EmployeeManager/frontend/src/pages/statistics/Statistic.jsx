@@ -5,7 +5,7 @@ import {DefaultMask} from "../login/component/DefaultMask.jsx";
 import {employeeStatisticsURL} from "../../URLs/employeeStatisticsURL.js";
 import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
-import {Avergae} from "./component/Avergae.jsx";
+import {Average} from "./component/Average.jsx";
 import {getAuthenticatedResult} from "../../utils/getToken.js";
 
 
@@ -42,17 +42,13 @@ export default function Statistic() {
                 <div className="card-header">
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                            <JuniorEmployee id={statistic.junior.id} slicedID={statistic.slicedJuniorID}
-                                            firstName={statistic.junior.firstName}
-                                            lastName={statistic.junior.lastName}/>
+                            <JuniorEmployee junior={statistic.junior} slicedID={statistic.slicedJuniorID}/>
                         </li>
                         <li className="list-group-item">
-                            <SeniorEmployee id={statistic.senior.id} slicedID={statistic.slicedSeniorID}
-                                            firstName={statistic.senior.firstName}
-                                            lastName={statistic.senior.lastName}/>
+                            <SeniorEmployee senior={statistic.senior} slicedID={statistic.slicedSeniorID}/>
                         </li>
                         <li className="list-group-item">
-                            <Avergae average={statistic.average}/>
+                            <Average average={statistic.average}/>
                         </li>
                     </ul>
                 </div>
