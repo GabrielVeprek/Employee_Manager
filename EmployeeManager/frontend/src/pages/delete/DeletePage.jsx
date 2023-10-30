@@ -37,7 +37,8 @@ export function DeletePage() {
         setEmployee(result.data)
     }
     return (
-        <DefaultMask>Confirm delete of Employee :
+        <DefaultMask>
+            <h4 className="text-primary">Confirm delete of Employee : </h4>
             <EmployeePersonalInfos employee={employee}/>
             <ConfirmDeleteButton deleteEmployee={deleteEmployee}/>
             <ButtonCancel/>
