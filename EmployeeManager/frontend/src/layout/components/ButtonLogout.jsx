@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-export function LogoutButton({isLoggedIn}) {
+export function ButtonLogout({isLoggedIn}) {
     const handleLogout = () => {
         localStorage.clear()
         isLoggedIn(false)
@@ -10,8 +10,7 @@ export function LogoutButton({isLoggedIn}) {
             className="btn btn-outline-light border-light bg-secondary shadow"
             to="/"
             type="submit"
-            onClick={handleLogout}
-        >
+            onClick={handleLogout}>
             LOGOUT
         </Link>
     )

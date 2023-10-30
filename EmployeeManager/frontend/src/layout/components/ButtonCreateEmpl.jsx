@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-export function CreateEmployeeButton() {
+export function ButtonCreateEmpl() {
     return (
         <Link
             className="btn btn-outline-light border-light  bg-success shadow"

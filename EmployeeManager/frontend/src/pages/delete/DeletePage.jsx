@@ -9,7 +9,6 @@ import {CancelConfirmButton} from "../component/CancelConfirmButton.jsx";
 
 export function DeletePage() {
 
-
     const [employee, setEmployee] = useState({
         firstName: "",
         lastName: "",
