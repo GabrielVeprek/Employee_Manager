@@ -1,11 +1,11 @@
 import {useContext, useEffect, useState} from "react";
 import axios from "axios";
-import {employeeURL} from "../../../URLs/employeeURL.js";
 import {ButtonView} from "./ButtonView.jsx";
 import {ButtonEdit} from "./ButtonEdit.jsx";
 import {TableBodyDate} from "./TableBodyDate.jsx";
 import {appContext} from "../../../App.jsx";
 import {ButtonDelete} from "./ButtonDelete.jsx";
+import {employeeURL} from "../../../URLs/EmployeeURLs.js";
 
 
 export function TableBody({isLoggedIn}) {

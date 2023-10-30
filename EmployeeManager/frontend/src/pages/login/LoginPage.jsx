@@ -6,9 +6,9 @@ import {ButtonLogin} from "./component/ButtonLogin.jsx";
 import {ButtonRegister} from "./component/ButtonRegister.jsx";
 import {DefaultMask} from "./component/DefaultMask.jsx";
 import {setTokenToHeader} from "../../utils/sendToken.js";
+import {employeeLoginURL} from "../../URLs/EmployeeURLs.js";
 
 export function LoginPage({setIsLoggedIn}) {
-    const BACKEND_LOGIN = 'http://localhost:8080/login';
     const [wrongLogIn, setWrongLogIn] = useState(false);
 
     const [user, setUser] = useState({
@@ -27,7 +27,7 @@ export function LoginPage({setIsLoggedIn}) {
     function handleLogin() {
         const headers = setTokenToHeader(user);
 
-        fetch(BACKEND_LOGIN, {method: 'GET', headers: headers})
+        fetch(employeeLoginURL, {method: 'GET', headers: headers})
             .then(response => {
                 if (response.status !== 401) {
                     setIsLoggedIn(true);

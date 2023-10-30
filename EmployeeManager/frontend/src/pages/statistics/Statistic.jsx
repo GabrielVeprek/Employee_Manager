@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {sliceID} from "../../utils/ids.js";
 import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
 import {DefaultMask} from "../login/component/DefaultMask.jsx";
-import {employeeStatisticsURL} from "../../URLs/employeeStatisticsURL.js";
+import {employeeURLs} from "../../URLs/EmployeeURLs.js";
 import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
 import {Average} from "./component/Average.jsx";
@@ -25,7 +25,7 @@ export default function Statistic() {
 
 
     const loadStatistics = async () => {
-        const result = await getAuthenticatedResult(employeeStatisticsURL);
+        const result = await getAuthenticatedResult(employeeURLs);
         const data = {
             ...result.data,
             slicedJuniorID: sliceID(result.data.junior.id),

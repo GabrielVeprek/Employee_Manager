@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {employeeURL} from "../../../URLs/employeeURL.js";
 import {getAuthenticatedResult, postAuthenticatedResult, putAuthenticatedResult} from "../../../utils/getToken.js";
+import {employeeURL} from "../../../URLs/EmployeeURLs.js";
 
 export function useEditInputField(id) {
     let navigate = useNavigate();
@@ -12,7 +12,7 @@ export function useEditInputField(id) {
         entryDate: "",
         position: "",
         salary: 0,
-        holidays : { amount :"", nextHoliday: ""},
+        holidays: {amount: "", nextHoliday: ""},
     });
 
     useEffect(() => {
@@ -30,12 +30,12 @@ export function useEditInputField(id) {
     };
     const onUpdate = async (event) => {
         event.preventDefault();
-        await putAuthenticatedResult(`${employeeURL}/${id}`,employee,)
+        await putAuthenticatedResult(`${employeeURL}/${id}`, employee,)
         navigate("/");
     };
     const onCreate = async (event) => {
         event.preventDefault();
-        await postAuthenticatedResult(employeeURL,employee)
+        await postAuthenticatedResult(employeeURL, employee)
         navigate("/");
     };
 
