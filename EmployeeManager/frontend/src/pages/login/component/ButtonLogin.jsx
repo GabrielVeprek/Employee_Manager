@@ -6,8 +6,7 @@ export function ButtonLogin ({handleLogin}) {
             type="submit"
             className="btn btn-outline-success mx-2"
             onClick={handleLogin}
-            to={"/login"}
-        >
+            to={"/login"}>
             Login
         </Link>
     )

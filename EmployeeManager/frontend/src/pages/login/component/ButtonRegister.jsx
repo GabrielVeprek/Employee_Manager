@@ -1,7 +1,11 @@
 import {Link} from "react-router-dom";
 
 export function ButtonRegister() {
-    return (<Link to="/register" className="btn btn-outline-primary mx-2">
-        Register
-    </Link>)
+    return (
+        <Link
+            type="submit"
+            className="btn btn-outline-primary mx-2"
+            to="/register">
+            Register
+        </Link>)
 }
