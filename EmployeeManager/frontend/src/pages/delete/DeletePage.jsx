@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom";
 import {deleteAuthenticatedResult, getAuthenticatedResult} from "../../utils/getToken.js";
 import {employeeURL} from "../../URLs/employeeURL.js";
 import {ConfirmDeleteButton} from "../../buttonComponent/ConfirmDeleteButton.jsx";
-import {CancelConfirmButton} from "../component/CancelConfirmButton.jsx";
+import {ButtonCancel} from "./component/ButtonCancel.jsx";
 
 export function DeletePage() {
 
@@ -40,7 +40,7 @@ export function DeletePage() {
         <DefaultMask>Confirm delete of Employee :
             <EmployeePersonalInfos employee={employee}/>
             <ConfirmDeleteButton deleteEmployee={deleteEmployee}/>
-            <CancelConfirmButton/>
+            <ButtonCancel/>
         </DefaultMask>
     )
 }
