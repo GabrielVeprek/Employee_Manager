@@ -3,6 +3,7 @@ import {HomePageTitle} from "./components/HomePageTitle.jsx";
 import {ButtonLogin} from "./components/ButtonLogin.jsx";
 import {SearchBar} from "./components/SearchBar.jsx";
 import {ButtonDropdown} from "./components/ButtonDropdown.jsx";
+import {ImageSearchBar} from "./components/ImageSearchBar.jsx";
 
 export default function Navbar({isLoggedIn}) {
     return (
@@ -24,7 +25,9 @@ export default function Navbar({isLoggedIn}) {
                             </ul>
                         </div>
                     </div>
-                    <SearchBar/>
+<ImageSearchBar/>
+    <SearchBar/>
+
                 </div>
             </nav>
         </div>
