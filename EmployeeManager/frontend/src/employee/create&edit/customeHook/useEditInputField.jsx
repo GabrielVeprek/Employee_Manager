@@ -12,7 +12,8 @@ export function useEditInputField(id) {
         entryDate: "",
         position: "",
         salary: 0,
-        holidays: {amount: "", nextHoliday: ""},
+        holiday: {amount: "", nextHoliday: ""},
+        overtimeHour: 0
     });
 
     useEffect(() => {
@@ -26,6 +27,9 @@ export function useEditInputField(id) {
         setEmployee(result.data);
     };
     const onInputChange = (event) => {
+        if (event.target.name === "holiday") {
+            console.log(event.target)
+        }
         setEmployee({...employee, [event.target.name]: event.target.value});
     };
     const onUpdate = async (event) => {
