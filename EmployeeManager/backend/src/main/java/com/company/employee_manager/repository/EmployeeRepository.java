@@ -28,6 +28,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, UUID> {
     Object getAverageTenure();
 
     @Query(value = "SELECT * FROM employee e " +
-            "WHERE e.last_name ILIKE :input || '%' OR e.first_name ILIKE :input || '%' OR e.position ILIKE :input || '%'", nativeQuery = true)
+            "WHERE e.last_name ILIKE :input || '%' OR e.first_name ILIKE :input || '%'", nativeQuery = true)
     List<Employee> searchByInput(@Param("input") String input);
 }
