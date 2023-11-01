@@ -7,7 +7,7 @@ export function Position ({position, onInputChange}) {
             <input
                 type={"text"}
                 className="form-control"
-                name="positddion"
+                name="position"
                 value={position ?? ""}
                 onChange={(event) => onInputChange(event)}
             />
