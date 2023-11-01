@@ -5,7 +5,7 @@ export function Salary ({salary, onInputChange}) {
                 Salary
             </label>
             <input
-                type={"text"}
+                type={"number"}
                 className="form-control"
                 name="salary"
                 value={salary ?? ""}

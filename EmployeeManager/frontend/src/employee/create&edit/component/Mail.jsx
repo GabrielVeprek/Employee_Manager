@@ -5,7 +5,7 @@ export function Mail ({mail, onInputChange}) {
                 E-Mail
             </label>
             <input
-                type={"text"}
+                type={"email"}
                 className="form-control"
                 placeholder="E-Mail"
                 name="mail"

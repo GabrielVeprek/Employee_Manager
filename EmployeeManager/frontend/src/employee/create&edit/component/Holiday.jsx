@@ -1,5 +1,4 @@
 export function Holiday ({amount, onInputChange}) {
-    console.log(amount)
 
     return (
         <div className="mb-3">
@@ -7,13 +6,12 @@ export function Holiday ({amount, onInputChange}) {
                 Holidays left
             </label>
             <input
-                type={"text"}
+                type={"number"}
                 className="form-control"
-                name="holiday"
+                name="holiday.amount"
                 value={amount ?? ""}
                 onChange={(event) => onInputChange(event)}
             />
         </div>
     )
-
 }

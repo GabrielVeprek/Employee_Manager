@@ -5,7 +5,7 @@ export function Overtime({overtime, onInputChange}) {
                 Overtime
             </label>
             <input
-                type={"text"}
+                type={"number"}
                 className="form-control"
                 name="overtimeHour"
                 value={overtime ?? ""}
