@@ -36,21 +36,24 @@ public class EmployeeController {
 
     @GetMapping("/{ID}")
     Employee findByID(@PathVariable UUID ID) throws EmployeeNotFoundException {
-        return employeeRepository.findById(ID)
-                .orElseThrow(EmployeeNotFoundException::new);
+        return employeeRepository.findById(ID).orElseThrow(EmployeeNotFoundException::new);
 
     }
 
     @PutMapping("/{ID}")
     Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable UUID ID) throws EmployeeNotFoundException {
-        return employeeRepository.findById(ID)
-                .map(employee -> {
-                    employee.setFirstName(newEmployee.getFirstName());
-                    employee.setLastName(newEmployee.getLastName());
-                    employee.setMail(newEmployee.getMail());
-                    employee.setEntryDate(newEmployee.getEntryDate());
-                    return employeeRepository.save(employee);
-                }).orElseThrow(EmployeeNotFoundException::new);
+        return employeeRepository.findById(ID).map(employee -> {
+            employee.setFirstName(newEmployee.getFirstName());
+            employee.setLastName(newEmployee.getLastName());
+            employee.setMail(newEmployee.getMail());
+            employee.setEntryDate(newEmployee.getEntryDate());
+            employee.setPosition(newEmployee.getPosition());
+            employee.setSalary(newEmployee.getSalary());
+            employee.setTask(newEmployee.getTask());
+            employee.setHoliday(newEmployee.getHoliday());
+            employee.setOvertimeHour(newEmployee.getOvertimeHour());
+            return employeeRepository.save(employee);
+        }).orElseThrow(EmployeeNotFoundException::new);
     }
 
     @DeleteMapping("/{ID}")
