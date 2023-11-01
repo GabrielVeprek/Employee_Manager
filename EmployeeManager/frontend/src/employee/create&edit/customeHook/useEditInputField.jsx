@@ -28,8 +28,19 @@ export function useEditInputField(id) {
         setEmployee(result.data);
     };
     const onInputChange = (event) => {
-        setEmployee({...employee, [event.target.name]: event.target.value});
-    }
+        const { name, value } = event.target;
+        const propertyPath = name.split('.'); // Zerlegt den Pfad in ein Array
+        let updatedEmployee = { ...employee };
+
+        // Aktualisiert die verschachtelte Eigenschaft
+        let currentLevel = updatedEmployee;
+        for (let i = 0; i < propertyPath.length - 1; i++) {
+            currentLevel = currentLevel[propertyPath[i]];
+        }
+        currentLevel[propertyPath[propertyPath.length - 1]] = value;
+
+        setEmployee(updatedEmployee);
+    };
     const onUpdate = async (event) => {
         event.preventDefault();
         await putAuthenticatedResult(`${employeeURL}/${id}`, employee,)
