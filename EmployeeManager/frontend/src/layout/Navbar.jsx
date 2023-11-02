@@ -1,9 +1,9 @@
 import {HomePageImage} from "./components/HomePageImage.jsx";
 import {HomePageTitle} from "./components/HomePageTitle.jsx";
 import {ButtonLogin} from "./components/ButtonLogin.jsx";
-import {SearchBar} from "./components/SearchBar.jsx";
+import {SearchBar} from "./components/searchbar/SearchBar.jsx";
 import {ButtonDropdown} from "./components/ButtonDropdown.jsx";
-import {ImageSearchBar} from "./components/ImageSearchBar.jsx";
+import {ImageSearchBar} from "./components/searchbar/ImageSearchBar.jsx";
 
 export default function Navbar({isLoggedIn}) {
     return (
