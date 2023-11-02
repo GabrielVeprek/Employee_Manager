@@ -11,6 +11,7 @@ import {Salary} from "./component/Salary.jsx";
 import {Task} from "./component/Task.jsx";
 import {Holiday} from "./component/Holiday.jsx";
 import {Overtime} from "./component/Overtime.jsx";
+import {HolidayDate} from "./component/HolidayDate.jsx";
 
 export function InputField({id}) {
     const {onSubmit, onInputChange, employee} = useEditInputField(id);
@@ -31,6 +32,7 @@ export function InputField({id}) {
                     <Salary salary={employee.salary} onInputChange={onInputChange}/>
                     <Task task={employee.task} onInputChange={onInputChange}/>
                     <Holiday amount={employee.holiday.amount} onInputChange={onInputChange}/>
+                    <HolidayDate date={employee.holiday.nextHoliday} onInputChange={onInputChange}/>
                     <Overtime overtime={employee.overtimeHour} onInputChange={onInputChange}/>
                 </CardContainer>
                 <SubmitButton/>
