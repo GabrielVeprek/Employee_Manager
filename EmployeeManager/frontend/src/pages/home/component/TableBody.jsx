@@ -1,12 +1,11 @@
-import {useContext, useEffect, useState} from "react";
-import axios from "axios";
-import {ButtonView} from "./ButtonView.jsx";
-import {ButtonEdit} from "./ButtonEdit.jsx";
-import {TableBodyDate} from "./TableBodyDate.jsx";
-import {appContext} from "../../../App.jsx";
-import {ButtonDelete} from "./ButtonDelete.jsx";
-import {employeeURL} from "../../../URLs/EmployeeURLs.js";
-
+import {useContext, useEffect, useState} from "react"
+import axios from "axios"
+import {ButtonView} from "./ButtonView.jsx"
+import {ButtonEdit} from "./ButtonEdit.jsx"
+import {TableBodyDate} from "./TableBodyDate.jsx"
+import {appContext} from "../../../App.jsx"
+import {ButtonDelete} from "./ButtonDelete.jsx"
+import {employeeURL} from "../../../URLs/EmployeeStatsURL.js"
 
 export function TableBody({isLoggedIn}) {
 

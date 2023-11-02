@@ -1,7 +1,7 @@
-import axios from "axios";
-import {useContext, useState} from "react";
-import {appContext} from "../../../App.jsx";
-import {InputField} from "./InputField.jsx";
+import axios from "axios" 
+import {useContext, useState} from "react" 
+import {appContext} from "../../../App.jsx" 
+import {InputField} from "./InputField.jsx" 
 
 export function SearchBar() {
     const [inputValue, setInputValue] = useState("")
@@ -18,17 +18,18 @@ export function SearchBar() {
         setNoUserFound(response.data.length === 0)
     }
 
-
     return (
         <div className="d-flex align-items-center ml-auto">
-            <InputField inputValue={inputValue} handleSearch={handleSearch} noUserFound={noUserFound}/>
-            {noUserFound ? (
+            <InputField
+                inputValue={inputValue}
+                handleSearch={handleSearch}
+                noUserFound={noUserFound}
+            />
+            {noUserFound ?
                 <div className="alert alert-danger bottom-0" role="alert">
                     No employee found ! 🧐🧐
                 </div>
-            ) : (
-                ""
-            )}
+                : ""}
         </div>
 
     )

@@ -10,5 +10,5 @@ export function TableHead() {
             <th scope="col">E-Mail</th>
         </tr>
         </thead>
-    );
+    )
 }

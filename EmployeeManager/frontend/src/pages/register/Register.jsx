@@ -1,10 +1,10 @@
-import {Link} from "react-router-dom";
-import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
-import {useState} from "react";
+import {Link} from "react-router-dom"
+import {CancelButton} from "../../buttonComponent/CancelButton.jsx"
+import {useState} from "react"
+import {employeeRegisterURL} from "../../URLs/EmployeeStatsURL.js"
+import axios from "axios"
+
 export function Register() {
-
-    const BACKEND_REGISTER = 'http://localhost:8080/register'
-
 
     const [user, setUser] = useState({
         username: "",
@@ -12,11 +12,11 @@ export function Register() {
     })
 
     function handleUsernameChange(event) {
-        setUser({...user, username: event.target.value});
+        setUser({...user, username: event.target.value})
     }
 
     function handlePasswordChange(event) {
-        setUser({...user, password: event.target.value});
+        setUser({...user, password: event.target.value})
     }
 
     function handleRegister() {
@@ -24,27 +24,23 @@ export function Register() {
             username: user.username,
             password: user.password,
             authorities: ["USER"]
-        };
+        }
 
-        fetch(BACKEND_REGISTER, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user1),
+        axios.post(employeeRegisterURL, user1, {
+            headers: {'Content-Type': 'application/json'}
         })
-            .catch((error) => console.log("Fehler beim Registrieren: " + error));
     }
 
     return (
-
         <div className="container">
             <div className="row text-center">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
                     <h2 className="text-center m-4">Register</h2>
                     <form>
                         <div className="mb-3">
-                            <label htmlFor="FirstName" className="form-label">
+                            <label
+                                htmlFor="FirstName"
+                                className="form-label">
                                 Username
                             </label>
                             <input

@@ -1,14 +1,12 @@
-import {useEffect, useState} from "react";
-import {sliceID} from "../../utils/ids.js";
-import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
-import {DefaultMask} from "../login/component/DefaultMask.jsx";
-import {employeeURLs} from "../../URLs/EmployeeURLs.js";
-import {JuniorEmployee} from "./component/JuniorEmployee.jsx";
-import {SeniorEmployee} from "./component/SeniorEmployee.jsx";
-import {Average} from "./component/Average.jsx";
-import {getAuthenticatedResult} from "../../utils/getToken.js";
-
-
+import {useEffect, useState} from "react"
+import {sliceID} from "../../utils/ids.js"
+import {HomeButton} from "../../buttonComponent/HomeButton.jsx"
+import {DefaultMask} from "../login/component/DefaultMask.jsx"
+import {employeeStatsURL} from "../../URLs/EmployeeStatsURL.js"
+import {JuniorEmployee} from "./component/JuniorEmployee.jsx"
+import {SeniorEmployee} from "./component/SeniorEmployee.jsx"
+import {Average} from "./component/Average.jsx"
+import {getAuthenticatedResult} from "../../utils/getToken.js"
 export default function Statistic() {
 
     const [statistic, setStatistic] = useState({
@@ -17,22 +15,21 @@ export default function Statistic() {
         senior: "",
         slicedSeniorID: "",
         average: 0,
-    });
+    })
 
     useEffect(() => {
-        loadStatistics();
-    }, []);
-
+        loadStatistics()
+    }, [])
 
     const loadStatistics = async () => {
-        const result = await getAuthenticatedResult(employeeURLs);
+        const result = await getAuthenticatedResult(employeeStatsURL)
         const data = {
             ...result.data,
             slicedJuniorID: sliceID(result.data.junior.id),
             slicedSeniorID: sliceID(result.data.senior.id),
             average: sliceID(result.data.average.toString())
         }
-        setStatistic(data);
+        setStatistic(data)
     }
 
     return (

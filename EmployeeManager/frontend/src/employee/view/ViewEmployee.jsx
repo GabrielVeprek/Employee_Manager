@@ -1,13 +1,12 @@
-import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {HomeButton} from "../../buttonComponent/HomeButton.jsx";
-import {DefaultMask} from "../../pages/login/component/DefaultMask.jsx";
-import {EmployeePersonalInfos} from "./component/EmployeePersonalInfos.jsx";
-import {getAuthenticatedResult} from "../../utils/getToken.js";
-import {EmployeeStatisticInfo} from "./component/EmployeeStatisticInfo.jsx";
-import {EmployeeHolidayInfo} from "./component/EmployeeHolidayInfo.jsx";
-import {employeeURL} from "../../URLs/EmployeeURLs.js";
-
+import {useParams} from "react-router-dom" 
+import {useEffect, useState} from "react" 
+import {HomeButton} from "../../buttonComponent/HomeButton.jsx" 
+import {DefaultMask} from "../../pages/login/component/DefaultMask.jsx" 
+import {EmployeePersonalInfos} from "./component/EmployeePersonalInfos.jsx" 
+import {getAuthenticatedResult} from "../../utils/getToken.js" 
+import {EmployeeStatisticInfo} from "./component/EmployeeStatisticInfo.jsx" 
+import {EmployeeHolidayInfo} from "./component/EmployeeHolidayInfo.jsx" 
+import {employeeURL} from "../../URLs/EmployeeStatsURL.js" 
 
 export default function ViewEmployee() {
 
@@ -23,10 +22,10 @@ export default function ViewEmployee() {
         overtime: 0,
     })
 
-    const {id} = useParams();
+    const {id} = useParams() 
 
     useEffect(() => {
-        loadEmployee();
+        loadEmployee() 
     }, [])
 
     const loadEmployee = async () => {
@@ -42,5 +41,5 @@ export default function ViewEmployee() {
             <EmployeeHolidayInfo employee={employee}/>
             <HomeButton/>
         </DefaultMask>
-    );
+    ) 
 }

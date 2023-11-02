@@ -1,7 +1,7 @@
-import {HolidayAmount} from "./HolidayAmount.jsx";
-import {HolidayNext} from "./HolidayNext.jsx";
-import {Overtime} from "./Overtime.jsx";
-import {CardContainer} from "./CardContainer.jsx";
+import {HolidayAmount} from "./HolidayAmount.jsx" 
+import {HolidayNext} from "./HolidayNext.jsx" 
+import {Overtime} from "./Overtime.jsx" 
+import {CardContainer} from "./CardContainer.jsx" 
 
 export function EmployeeHolidayInfo({employee}) {
     return (

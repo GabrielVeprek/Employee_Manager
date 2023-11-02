@@ -1,8 +1,8 @@
-export function Position ({position}) {
-    return(
+export function Position({position}) {
+    return (
         <li className="list-group-item">
-        <b>Position : </b>
-        {position}
-    </li>
+            <b>Position : </b>
+            {position}
+        </li>
     )
 }

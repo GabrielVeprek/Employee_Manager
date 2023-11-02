@@ -1,26 +1,26 @@
-import "./App.css";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./layout/Navbar";
-import Home from "./pages/home/Home.jsx";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import CreateEmployee from "./employee/create&edit/CreateEmployee.jsx";
-import EditEmployee from "./employee/create&edit/EditEmployee.jsx";
-import ViewEmployee from "./employee/view/ViewEmployee.jsx";
-import Statistic from "./pages/statistics/Statistic.jsx";
-import {LoginPage} from "./pages/login/LoginPage.jsx";
-import {Register} from "./pages/register/Register.jsx";
-import {createContext, useEffect, useState} from "react";
-import {getToken} from "./utils/getToken.js";
-import {DeletePage} from "./pages/delete/DeletePage.jsx";
+import "./App.css" 
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css" 
+import Navbar from "./layout/Navbar" 
+import Home from "./pages/home/Home.jsx" 
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom" 
+import CreateEmployee from "./employee/create&edit/CreateEmployee.jsx" 
+import EditEmployee from "./employee/create&edit/EditEmployee.jsx" 
+import ViewEmployee from "./employee/view/ViewEmployee.jsx" 
+import Statistic from "./pages/statistics/Statistic.jsx" 
+import {LoginPage} from "./pages/login/LoginPage.jsx" 
+import {Register} from "./pages/register/Register.jsx" 
+import {createContext, useEffect, useState} from "react" 
+import {getToken} from "./utils/getToken.js" 
+import {DeletePage} from "./pages/delete/DeletePage.jsx" 
 
-export const appContext = createContext(null);
+export const appContext = createContext(null) 
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false) 
     const [appState, setAppState] = useState({searchResult: []})
 
     function isTokenInStorage() {
-        return getToken() !== null;
+        return getToken() !== null 
     }
 
     useEffect(() => {
@@ -45,7 +45,7 @@ function App() {
                 </Router>
             </div>
         </appContext.Provider>
-    );
+    ) 
 }
 
-export default App;
+export default App 

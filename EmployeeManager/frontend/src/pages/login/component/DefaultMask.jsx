@@ -7,5 +7,5 @@ export function DefaultMask({ children }) {
                 </div>
             </div>
         </div>
-    );
+    )
 }

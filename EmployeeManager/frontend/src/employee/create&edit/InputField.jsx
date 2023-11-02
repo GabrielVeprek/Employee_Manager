@@ -1,20 +1,20 @@
-import {SubmitButton} from "../../buttonComponent/SubmitButton.jsx";
-import {CancelButton} from "../../buttonComponent/CancelButton.jsx";
-import {useEditInputField} from "./customeHook/useEditInputField.jsx";
-import {FirstName} from "./component/FirstName.jsx";
-import {LastName} from "./component/LastName.jsx";
-import {Mail} from "./component/Mail.jsx";
-import {EntryDate} from "./component/EntryDate.jsx";
-import {CardContainer} from "../view/component/CardContainer.jsx";
-import {Position} from "./component/Position.jsx";
-import {Salary} from "./component/Salary.jsx";
-import {Task} from "./component/Task.jsx";
-import {Holiday} from "./component/Holiday.jsx";
-import {Overtime} from "./component/Overtime.jsx";
-import {HolidayDate} from "./component/HolidayDate.jsx";
+import {SubmitButton} from "../../buttonComponent/SubmitButton.jsx" 
+import {CancelButton} from "../../buttonComponent/CancelButton.jsx" 
+import {useEditInputField} from "./customeHook/useEditInputField.jsx" 
+import {FirstName} from "./component/FirstName.jsx" 
+import {LastName} from "./component/LastName.jsx" 
+import {Mail} from "./component/Mail.jsx" 
+import {EntryDate} from "./component/EntryDate.jsx" 
+import {CardContainer} from "../view/component/CardContainer.jsx" 
+import {Position} from "./component/Position.jsx" 
+import {Salary} from "./component/Salary.jsx" 
+import {Task} from "./component/Task.jsx" 
+import {Holiday} from "./component/Holiday.jsx" 
+import {Overtime} from "./component/Overtime.jsx" 
+import {HolidayDate} from "./component/HolidayDate.jsx" 
 
 export function InputField({id}) {
-    const {onSubmit, onInputChange, employee} = useEditInputField(id);
+    const {onSubmit, onInputChange, employee} = useEditInputField(id) 
 
     return (
         (

@@ -1,6 +1,6 @@
-import {ButtonStatistics} from "./ButtonStatistics.jsx";
-import {ButtonCreateEmpl} from "./ButtonCreateEmpl.jsx";
-import {ButtonLogout} from "./ButtonLogout.jsx";
+import {ButtonStatistics} from "./ButtonStatistics.jsx" 
+import {ButtonCreateEmpl} from "./ButtonCreateEmpl.jsx" 
+import {ButtonLogout} from "./ButtonLogout.jsx" 
 
 export function ButtonDropdown ({isLoggedIn}) {
     return(

@@ -1,11 +1,11 @@
-import {DefaultMask} from "../login/component/DefaultMask.jsx";
-import {EmployeePersonalInfos} from "../../employee/view/component/EmployeePersonalInfos.jsx";
-import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-import {deleteAuthenticatedResult, getAuthenticatedResult} from "../../utils/getToken.js";
-import {ConfirmDeleteButton} from "../../buttonComponent/ConfirmDeleteButton.jsx";
-import {ButtonCancel} from "./component/ButtonCancel.jsx";
-import {employeeURL} from "../../URLs/EmployeeURLs.js";
+import {DefaultMask} from "../login/component/DefaultMask.jsx"
+import {EmployeePersonalInfos} from "../../employee/view/component/EmployeePersonalInfos.jsx"
+import {useEffect, useState} from "react"
+import {useParams} from "react-router-dom"
+import {deleteAuthenticatedResult, getAuthenticatedResult} from "../../utils/getToken.js"
+import {ConfirmDeleteButton} from "../../buttonComponent/ConfirmDeleteButton.jsx"
+import {ButtonCancel} from "./component/ButtonCancel.jsx"
+import {employeeURL} from "../../URLs/EmployeeStatsURL.js"
 
 export function DeletePage() {
 
@@ -21,10 +21,10 @@ export function DeletePage() {
         overtime: 0,
     })
 
-    const {id} = useParams();
+    const {id} = useParams()
 
     useEffect(() => {
-        loadEmployee();
+        loadEmployee()
     }, [])
 
     const deleteEmployee = async () => {
@@ -38,7 +38,7 @@ export function DeletePage() {
     }
     return (
         <DefaultMask>
-            <h4 className="text-primary">Confirm delete of Employee : </h4>
+            <h4 className="text-primary"> Confirm delete of Employee : </h4>
             <EmployeePersonalInfos employee={employee}/>
             <ConfirmDeleteButton deleteEmployee={deleteEmployee}/>
             <ButtonCancel/>
