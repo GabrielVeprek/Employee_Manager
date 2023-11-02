@@ -8,17 +8,16 @@ export function SearchBar() {
 
     async function handleSearch(event) {
         setInputValue(event.target.value)
-            const response = await axios.get(event.target.value === "" ?`http://localhost:8080/employee` :`http://localhost:8080/employee/search/${event.target.value}`)
-            setAppState((currenState) => ({
-                ...currenState, searchResult: response.data
-            }))
+        const response = await axios.get(event.target.value === "" ? `http://localhost:8080/employee` : `http://localhost:8080/employee/search/${event.target.value}`)
+        setAppState((currenState) => ({
+            ...currenState, searchResult: response.data
+        }))
     }
 
     return (
         <div className="d-flex align-items-center ml-auto">
             <form className="d-flex" role="search" onChange={event => event.preventDefault()}>
                 <input className="form-control me-2"
-
                        aria-label="Search"
                        type="text"
                        placeholder="Firstname or Lastname..."
@@ -26,8 +25,6 @@ export function SearchBar() {
                        value={inputValue ?? ""}
                        onChange={(event) => handleSearch(event)}
                 ></input>
-                <button className="btn btn-outline-light" type="submit" onClick={handleSearch}>Search
-                </button>
             </form>
         </div>
     )

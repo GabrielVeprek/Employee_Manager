@@ -25,9 +25,8 @@ export default function Navbar({isLoggedIn}) {
                             </ul>
                         </div>
                     </div>
-<ImageSearchBar/>
-    <SearchBar/>
-
+                    <ImageSearchBar/>
+                    <SearchBar/>
                 </div>
             </nav>
         </div>
