@@ -1,37 +1,29 @@
 package com.company.employee_manager.model.employee;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.UUID;
 
-@Entity
+
 public class Holiday {
-    @Id
-    @GeneratedValue
-    private UUID ID;
 
-    private int amount;
+    private int holidayAmount;
 
     private LocalDate nextHoliday;
 
-    public Holiday(int amount, LocalDate nextHoliday) {
-        this.amount = amount;
+    public Holiday(int holidayAmount, LocalDate nextHoliday) {
+        this.holidayAmount = holidayAmount;
         this.nextHoliday = nextHoliday;
     }
 
     public Holiday() {
     }
 
-    public int getAmount() {
-        return amount;
+    public int getHolidayAmount() {
+        return holidayAmount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setHolidayAmount(int holidayAmount) {
+        this.holidayAmount = holidayAmount;
     }
 
     public LocalDate getNextHoliday() {
@@ -47,11 +39,11 @@ public class Holiday {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Holiday holiday = (Holiday) o;
-        return amount == holiday.amount && Objects.equals(nextHoliday, holiday.nextHoliday);
+        return holidayAmount == holiday.holidayAmount && Objects.equals(nextHoliday, holiday.nextHoliday);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, nextHoliday);
+        return Objects.hash(holidayAmount, nextHoliday);
     }
 }

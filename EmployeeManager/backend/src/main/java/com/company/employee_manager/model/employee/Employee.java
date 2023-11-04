@@ -19,7 +19,7 @@ public class Employee {
     private Position position;
     private int salary;
     private double overtimeHour;
-    @OneToOne(cascade = CascadeType.ALL)
+    @Embedded
     private Holiday holiday;
     private String task;
 
