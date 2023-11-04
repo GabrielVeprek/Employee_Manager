@@ -7,6 +7,7 @@ export function Task({task, onInputChange}) {
             <input
                 type={"text"}
                 className="form-control"
+                placeholder="Task"
                 name="task"
                 value={task ?? ""}
                 onChange={(event) => onInputChange(event)}
