@@ -6,10 +6,12 @@ import {ButtonLogin} from "./component/ButtonLogin.jsx"
 import {ButtonRegister} from "./component/ButtonRegister.jsx"
 import {DefaultMask} from "./component/DefaultMask.jsx"
 import {setTokenToHeader} from "../../utils/sendToken.js"
-import {employeeHomeURL, employeeLoginURL} from "../../URLs/EmployeeStatsURL.js"
+import {employeeLoginURL} from "../../URLs/EmployeeStatsURL.js"
+import {useNavigate} from "react-router-dom";
 
 export function LoginPage({setIsLoggedIn}) {
 
+    const navigate = useNavigate();
     const [wrongLogIn, setWrongLogIn] = useState(false)
     const [user, setUser] = useState({
         username: "",
@@ -31,7 +33,7 @@ export function LoginPage({setIsLoggedIn}) {
             .then(response => {
                 if (response.status !== 401) {
                     setIsLoggedIn(true)
-                    window.location.href = employeeHomeURL
+                    navigate("/")
                 } else {
                     setWrongLogIn(true)
                 }
