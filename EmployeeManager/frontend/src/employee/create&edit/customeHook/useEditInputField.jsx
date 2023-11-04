@@ -14,7 +14,7 @@ export function useEditInputField(id) {
         position: "",
         salary: 0,
         task: "",
-        holiday: {amount: 0, nextHoliday: ""},
+        holiday: {holidayAmount: 0, nextHoliday: ""},
         overtimeHour: 0
     })
 

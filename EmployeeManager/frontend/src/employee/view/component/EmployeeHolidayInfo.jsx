@@ -8,7 +8,7 @@ export function EmployeeHolidayInfo({employee}) {
         <CardContainer>
             Holiday Infos
             <ul className="list-group list-group-flush">
-                <HolidayAmount amount={employee.holiday.amount}/>
+                <HolidayAmount amount={employee.holiday.holidayAmount}/>
                 <HolidayNext date={employee.holiday.nextHoliday}/>
                 <Overtime hours={employee.overtimeHour}/>
             </ul>

@@ -34,7 +34,7 @@ export function InputField({id}) {
                 </CardContainer>
                 <CardContainer>
                     <h6 className="text-primary my-1">Holiday Infos</h6>
-                    <Holiday amount={employee.holiday.amount} onInputChange={onInputChange}/>
+                    <Holiday amount={employee.holiday.holidayAmount} onInputChange={onInputChange}/>
                     <HolidayDate date={employee.holiday.nextHoliday} onInputChange={onInputChange}/>
                     <Overtime overtime={employee.overtimeHour} onInputChange={onInputChange}/>
                 </CardContainer>

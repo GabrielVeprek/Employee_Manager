@@ -17,7 +17,7 @@ export default function ViewEmployee() {
         entryDate: "",
         position: "",
         salary: 0,
-        holiday: {amount: 0, nextHoliday: ""},
+        holiday: {holidayAmount: 0, nextHoliday: ""},
         task: "",
         overtime: 0,
     })
