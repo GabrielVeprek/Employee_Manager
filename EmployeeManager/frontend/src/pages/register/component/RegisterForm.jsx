@@ -1,5 +1,5 @@
-import {UsernameInputField} from "./UsernameInputField.jsx";
-import {PasswordInputField} from "./PasswordInputField.jsx";
+import {UsernameInputField} from "./UsernameInputField.jsx"
+import {PasswordInputField} from "./PasswordInputField.jsx"
 
 export function RegisterForm({user, handleUsernameChange, handlePasswordChange}) {
     return (
