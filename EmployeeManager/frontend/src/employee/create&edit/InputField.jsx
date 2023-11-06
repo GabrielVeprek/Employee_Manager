@@ -12,6 +12,7 @@ import {Task} from "./component/Task.jsx"
 import {Holiday} from "./component/Holiday.jsx"
 import {Overtime} from "./component/Overtime.jsx"
 import {HolidayDate} from "./component/HolidayDate.jsx"
+import {CreateDataMask} from "./component/CreateDataMask.jsx";
 
 export function InputField({id}) {
     const {onSubmit, onInputChange, employee} = useEditInputField(id)
@@ -24,7 +25,14 @@ export function InputField({id}) {
                     <FirstName firstName={employee.firstName} onInputChange={onInputChange}/>
                     <LastName lastName={employee.lastName} onInputChange={onInputChange}/>
                     <Mail mail={employee.mail} onInputChange={onInputChange}/>
-                    <EntryDate entryDate={employee.entryDate} onInputChange={onInputChange}/>
+                    <CreateDataMask
+                        htmlText={"Entry Date"}
+                        type={"date"}
+                        inputName={"entryDate"}
+                        placeHolder={"Entry Date"}
+                        entryDate={employee.entryDate}
+                        onInputChange={onInputChange}
+                    />
                 </CardContainer>
                 <CardContainer>
                     <h6 className="text-primary my-1">Personal Statistics</h6>
