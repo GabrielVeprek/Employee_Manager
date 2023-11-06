@@ -38,7 +38,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers(HttpMethod.GET,"/employee").permitAll();
+                    auth.requestMatchers(HttpMethod.GET, "/employee").permitAll();
                     auth.requestMatchers(HttpMethod.GET, "/employee/search/*").permitAll();
                     auth.requestMatchers("/login").permitAll();
                     auth.requestMatchers("/register").permitAll();

@@ -18,7 +18,8 @@ public class JwtGenerator {
     public JwtGenerator(JwtEncoder jwtEncoder) {
         this.jwtEncoder = jwtEncoder;
     }
-    public String generate (Authentication authentication) {
+
+    public String generate(Authentication authentication) {
         var now = Instant.now();
         var scope = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
