@@ -1,7 +1,7 @@
 export function Position ({position, onInputChange}) {
     return (
         <div className="mb-3">
-            <label htmlFor="EntryDate" className="form-label text-dark">
+            <label className="form-label text-dark">
                 Position
             </label>
             <input

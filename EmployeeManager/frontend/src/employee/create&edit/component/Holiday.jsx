@@ -1,13 +1,13 @@
-export function Holiday ({amount, onInputChange}) {
+export function Holiday({amount, onInputChange}) {
     return (
         <div className="mb-3">
-            <label htmlFor="EntryDate" className="form-label text-dark">
+            <label className="form-label text-dark">
                 Holidays left
             </label>
             <input
                 type={"number"}
                 className="form-control"
-                name="holiday.amount"
+                name="holiday.holidayAmount"
                 value={amount ?? ""}
                 onChange={(event) => onInputChange(event)}
             />

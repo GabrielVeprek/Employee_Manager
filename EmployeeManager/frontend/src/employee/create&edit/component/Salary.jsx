@@ -1,11 +1,11 @@
-export function Salary ({salary, onInputChange}) {
+export function Salary({salary, onInputChange}) {
     return (
         <div className="mb-3">
-            <label htmlFor="EntryDate" className="form-label text-dark">
+            <label className="form-label text-dark">
                 Salary
             </label>
             <input
-                type={"number"}
+                type="number"
                 className="form-control"
                 name="salary"
                 value={salary ?? ""}

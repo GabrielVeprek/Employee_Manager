@@ -1,7 +1,7 @@
 export function FirstName({firstName, onInputChange}) {
     return (
         <div className="mb-3">
-            <label htmlFor="FirstName" className="form-label text-dark">
+            <label className="form-label text-dark">
                 First-Name
             </label>
             <input

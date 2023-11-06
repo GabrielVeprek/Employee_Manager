@@ -1,7 +1,7 @@
 export function HolidayDate({date, onInputChange}) {
     return (
         <div className="mb-3">
-            <label htmlFor="EntryDate" className="form-label text-dark">
+            <label className="form-label text-dark">
                 Holiday Date
             </label>
             <input

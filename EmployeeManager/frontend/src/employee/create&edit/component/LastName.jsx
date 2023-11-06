@@ -1,6 +1,6 @@
 export function LastName({lastName, onInputChange}) {
     return (<div className="mb-3">
-            <label htmlFor="LastName" className="form-label text-dark">
+            <label className="form-label text-dark">
                 Last-Name
             </label>
             <input
