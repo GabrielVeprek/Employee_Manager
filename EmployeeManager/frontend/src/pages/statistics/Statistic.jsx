@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react"
 import {sliceID} from "../../utils/ids.js"
 import {HomeButton} from "../../buttonComponent/HomeButton.jsx"
-import {DefaultMask} from "../login/component/DefaultMask.jsx"
 import {employeeStatsURL} from "../../URLs/EmployeeStatsURL.js"
 import {JuniorEmployee} from "./component/JuniorEmployee.jsx"
 import {SeniorEmployee} from "./component/SeniorEmployee.jsx"
 import {Average} from "./component/Average.jsx"
 import {getAuthenticatedResult} from "../../utils/getToken.js"
+import {DefaultMask} from "../../component/DefaultMask.jsx";
 export default function Statistic() {
 
     const [statistic, setStatistic] = useState({

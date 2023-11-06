@@ -1,5 +1,6 @@
-import {DefaultMask} from "../../pages/login/component/DefaultMask.jsx" 
-import {InputField} from "./InputField.jsx" 
+
+import {InputField} from "./InputField.jsx"
+import {DefaultMask} from "../../component/DefaultMask.jsx";
 
 export default function CreateEmployee() {
     return (

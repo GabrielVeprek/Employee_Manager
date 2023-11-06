@@ -1,7 +1,8 @@
 
-import {DefaultMask} from "../../pages/login/component/DefaultMask.jsx" 
+
 import {InputField} from "./InputField.jsx" 
-import {useParams} from "react-router-dom" 
+import {useParams} from "react-router-dom"
+import {DefaultMask} from "../../component/DefaultMask.jsx";
 
 export default function EditEmployee() {
     const {id} = useParams() 

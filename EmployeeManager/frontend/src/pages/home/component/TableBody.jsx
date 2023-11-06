@@ -8,7 +8,6 @@ import {ButtonDelete} from "./ButtonDelete.jsx";
 import {employeeURL} from "../../../URLs/EmployeeStatsURL.js";
 
 
-
 export function TableBody({isLoggedIn}) {
 
     const [employee, setEmployee] = useState([])

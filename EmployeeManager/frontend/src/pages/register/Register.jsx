@@ -4,7 +4,8 @@ import {useState} from "react"
 import {employeeRegisterURL} from "../../URLs/EmployeeStatsURL.js"
 import axios from "axios"
 import {RegisterForm} from "./component/RegisterForm.jsx";
-import {DefaultMask} from "../login/component/DefaultMask.jsx";
+import {DefaultMask} from "../../component/DefaultMask.jsx";
+
 
 export function Register() {
 
@@ -41,7 +42,6 @@ export function Register() {
                 handleUsernameChange={handleUsernameChange}
                 handlePasswordChange={handlePasswordChange}/>
             <Link
-                type="submit"
                 to={"/login"}
                 className="btn btn-outline-success mx-2"
                 onClick={handleRegister}>

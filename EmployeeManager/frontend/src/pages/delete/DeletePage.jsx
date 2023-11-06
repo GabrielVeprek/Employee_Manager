@@ -1,4 +1,3 @@
-import {DefaultMask} from "../login/component/DefaultMask.jsx"
 import {EmployeePersonalInfos} from "../../employee/view/component/EmployeePersonalInfos.jsx"
 import {useEffect, useState} from "react"
 import {useParams} from "react-router-dom"
@@ -6,6 +5,7 @@ import {deleteAuthenticatedResult, getAuthenticatedResult} from "../../utils/get
 import {ConfirmDeleteButton} from "../../buttonComponent/ConfirmDeleteButton.jsx"
 import {ButtonCancel} from "./component/ButtonCancel.jsx"
 import {employeeURL} from "../../URLs/EmployeeStatsURL.js"
+import {DefaultMask} from "../../component/DefaultMask.jsx";
 
 export function DeletePage() {
 
