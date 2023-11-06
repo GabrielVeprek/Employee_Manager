@@ -1,21 +1,19 @@
 import {useState} from "react"
 import {CancelButton} from "../../buttonComponent/CancelButton.jsx"
-import {FormLoginError} from "./component/FormLoginError.jsx"
 import {FormLogin} from "./component/FormLogin.jsx"
 import {ButtonLogin} from "./component/ButtonLogin.jsx"
 import {ButtonRegister} from "./component/ButtonRegister.jsx"
-import {DefaultMask} from "./component/DefaultMask.jsx"
 import {setTokenToHeader} from "../../utils/sendToken.js"
 import {employeeLoginURL} from "../../URLs/EmployeeStatsURL.js"
 import {useNavigate} from "react-router-dom";
+import {DefaultMask} from "../../component/DefaultMask.jsx";
 
 export function LoginPage({setIsLoggedIn}) {
 
     const navigate = useNavigate();
     const [wrongLogIn, setWrongLogIn] = useState(false)
     const [user, setUser] = useState({
-        username: "",
-        password: "",
+        username: "", password: "",
     })
 
     function handleUsernameChange(event) {
@@ -41,30 +39,19 @@ export function LoginPage({setIsLoggedIn}) {
             }).then(jwt => localStorage.setItem('jwt', jwt))
     }
 
-    const errorLoginForm =
-        <DefaultMask>
-            <FormLoginError
-                user={user}
-                handleUsernameChange={handleUsernameChange}
-                handlePasswordChange={handlePasswordChange}/>
-            <ButtonLogin handleLogin={handleLogin}/>
-            <ButtonRegister/>
-            <CancelButton/>
-        </DefaultMask>
 
-
-    const loginForm =
+    return (
         <DefaultMask>
             <FormLogin
                 user={user}
                 handleUsernameChange={handleUsernameChange}
-                handlePasswordChange={handlePasswordChange}/>
+                handlePasswordChange={handlePasswordChange}
+                wrongLogIn={wrongLogIn}/>
             <ButtonLogin handleLogin={handleLogin}/>
             <ButtonRegister/>
             <CancelButton/>
         </DefaultMask>
-
-    return (wrongLogIn ? errorLoginForm : loginForm)
+    )
 }
 
 
