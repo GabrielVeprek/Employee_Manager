@@ -1,6 +1,6 @@
 import {EmployeePersonalInfos} from "../../employee/view/component/EmployeePersonalInfos.jsx"
 import {useEffect, useState} from "react"
-import {useParams} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import {deleteAuthenticatedResult, getAuthenticatedResult} from "../../utils/getToken.js"
 import {ConfirmDeleteButton} from "../../buttonComponent/ConfirmDeleteButton.jsx"
 import {ButtonCancel} from "./component/ButtonCancel.jsx"
@@ -8,7 +8,7 @@ import {employeeURL} from "../../URLs/EmployeeStatsURL.js"
 import {DefaultMask} from "../../component/DefaultMask.jsx";
 
 export function DeletePage() {
-
+    const navigate = useNavigate();
     const [employee, setEmployee] = useState({
         firstName: "",
         lastName: "",
@@ -29,7 +29,7 @@ export function DeletePage() {
 
     const deleteEmployee = async () => {
         await deleteAuthenticatedResult(`${employeeURL}/${employee.id}`)
-        await loadEmployee()
+        navigate("/")
     }
 
     const loadEmployee = async () => {

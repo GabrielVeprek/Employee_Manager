@@ -1,11 +1,9 @@
-import {Link} from "react-router-dom" 
-
 export function ConfirmDeleteButton({deleteEmployee}) {
     return (
-        <Link
+        <button
             className="btn btn-danger mx-2"
-            to={"/"}
-            onClick={deleteEmployee}>Confirm Delete
-        </Link>
+            onClick={deleteEmployee}>
+            Confirm Delete
+        </button>
     )
 }
