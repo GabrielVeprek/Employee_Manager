@@ -2,11 +2,11 @@ package com.company.employee_manager.controller;
 
 import com.company.employee_manager.exception.EmployeeNotFoundException;
 import com.company.employee_manager.model.employee.Employee;
+import com.company.employee_manager.model.employee.Position;
 import com.company.employee_manager.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("employee")
@@ -37,7 +37,6 @@ public class EmployeeController {
     @GetMapping("/{ID}")
     Employee findByID(@PathVariable UUID ID) throws EmployeeNotFoundException {
         return employeeRepository.findById(ID).orElseThrow(EmployeeNotFoundException::new);
-
     }
 
     @PutMapping("/{ID}")
@@ -63,4 +62,14 @@ public class EmployeeController {
         }
         employeeRepository.deleteById(ID);
     }
+
+    @GetMapping("/position")
+    public Set<String> getAvailablePositions() {
+        Set<String> positions = new HashSet<>();
+        for (Position position : Position.values()) {
+            positions.add(position.name());
+        }
+        return positions;
+    }
+
 }
