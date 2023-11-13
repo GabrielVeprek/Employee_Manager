@@ -8,7 +8,7 @@ import {DefaultMask} from "../../component/DefaultMask.jsx";
 export function Register() {
 
     const navigate = useNavigate();
-    const [isInputInvalid, setIsInvalidInput] = useState(null)
+    const [isInputValid, setIsValidInput] = useState(true)
     const [message, setMessage] = useState("Register")
 
     const [user, setUser] = useState({
@@ -29,21 +29,24 @@ export function Register() {
     function handleRegister() {
         switch (true) {
             case user.username.trim().length < 1:
-                setIsInvalidInput(true);
+                setIsValidInput(false);
                 setMessage("Username cannot be empty");
                 break;
             case user.password.trim().length < 1:
-                setIsInvalidInput(true);
+                setIsValidInput(false);
                 setMessage("Password cannot be empty");
                 break;
             case user.password.trim().length < 8:
-                setIsInvalidInput(true);
+                setIsValidInput(false);
                 setMessage("Password must have at least 8 digits");
                 break;
+            case user.password.trim().length > 7 && user.username.trim().length > 1:
+                setIsValidInput(true)
+                register();
         }
 
 
-        if (user.password.trim().length > 7 && user.username.trim().length > 1) {
+        function register() {
             fetch(employeeRegisterURL, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -51,27 +54,28 @@ export function Register() {
             })
                 .then(response => {
                     if (response.status === 400) {
-                        setIsInvalidInput(true)
+                        setIsValidInput(false)
                         setMessage("Username already taken")
                     }
                     if (response.status === 201) {
                         navigate("/login")
                     }
                 })
+
         }
     }
 
 
     return (
         <DefaultMask>
-            <h2 className={isInputInvalid ? "text-center m-4 text-danger" : "text-center m-4"}>
+            <h2 className={isInputValid ? "text-center m-4 " : "text-center m-4 text-danger"}>
                 {message}
             </h2>
             <RegisterForm
                 user={user}
                 handleUsernameChange={handleUsernameChange}
                 handlePasswordChange={handlePasswordChange}
-                setIsSomethingWrong={isInputInvalid}
+                setIsSomethingWrong={isInputValid}
             />
             <button
                 className="btn btn-outline-success mx-2"
