@@ -6,8 +6,8 @@ export function RegisterForm({user, handleUsernameChange, handlePasswordChange})
         <form>
             <UsernameInputField
                 user={user}
-                handleUsernameChange={handleUsernameChange}/>
-
+                handleUsernameChange={handleUsernameChange}
+            />
             <PasswordInputField
                 user={user}
                 handlePasswordChange={handlePasswordChange}/>

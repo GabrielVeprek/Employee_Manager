@@ -27,21 +27,21 @@ export function Register() {
 
 
     function handleRegister() {
+        switch (true) {
+            case user.username.trim().length < 1:
+                setIsInvalidInput(true);
+                setMessage("Username cannot be empty");
+                break;
+            case user.password.trim().length < 1:
+                setIsInvalidInput(true);
+                setMessage("Password cannot be empty");
+                break;
+            case user.password.trim().length < 8:
+                setIsInvalidInput(true);
+                setMessage("Password must have at least 8 digits");
+                break;
+        }
 
-        if (user.username.trim().length < 1) {
-            setIsInvalidInput(true)
-            setMessage("Username cannot be empty")
-        } else {
-            setIsInvalidInput(null)
-        }
-        if (user.password.trim().length < 1) {
-            setIsInvalidInput(true)
-            setMessage("Password cannot be empty")
-        }
-        if (user.password.trim().length < 8) {
-            setIsInvalidInput(true)
-            setMessage("Password must have at least 8 digits")
-        }
 
         if (user.password.trim().length > 7 && user.username.trim().length > 1) {
             fetch(employeeRegisterURL, {
