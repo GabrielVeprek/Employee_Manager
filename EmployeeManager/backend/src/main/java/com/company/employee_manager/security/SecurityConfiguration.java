@@ -42,6 +42,7 @@ public class SecurityConfiguration {
                     auth.requestMatchers(HttpMethod.GET, "/employee/search/*").permitAll();
                     auth.requestMatchers("/login").permitAll();
                     auth.requestMatchers("/register").permitAll();
+                    auth.requestMatchers(HttpMethod.DELETE).hasAuthority("SCOPE_ADMIN");
                     auth.anyRequest().hasAuthority("SCOPE_USER");
                 })
                 .oauth2ResourceServer(oath2 -> oath2.jwt(Customizer.withDefaults()))
